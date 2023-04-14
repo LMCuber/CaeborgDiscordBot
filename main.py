@@ -242,6 +242,8 @@ async def on_message(msg):
     c = msg.content
     if profanity.contains_profanity(c):
         await msg.channel.send("Language")
+    if c.lower() == "hi":
+        await msg.channel.send("Hi!")
     await bot.process_commands(msg)
 
 
