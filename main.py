@@ -15,22 +15,24 @@ from requests import get
 from discord.ext import commands
 from PyDictionary import PyDictionary as PD
 from os.path import join as path
+import os
 
 
 colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
+root = "/home/dt/git/CaeborgDiscordBot"
 
 
 # I N I T I A L I Z A T I O N
 # text files
-with open("specs.json", "r") as f:
+with open(f"{root}specs.json", "r") as f:
     j = json.loads(f.read())
     token = j["token"]
     owner_id = j["owner id"]
-with open("blacklist.txt", "r") as f:
+with open(f"{root}blacklist.txt", "r") as f:
     blacklist = f.read().splitlines()
-with open("whitelist.txt", "r") as f:
+with open(f"{root}whitelist.txt", "r") as f:
     whitelist = f.read().splitlines()
 
 print("Text files loaded")
