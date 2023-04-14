@@ -22,11 +22,11 @@ colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
 root = "/home/dt/git/CaeborgDiscordBot/"
-
+home = "/home/dt/"
 
 # I N I T I A L I Z A T I O N
 # text files
-with open(f"{root}specs.json", "r") as f:
+with open(f"{home}specs.json", "r") as f:
     j = json.loads(f.read())
     token = j["token"]
     owner_id = j["owner id"]
