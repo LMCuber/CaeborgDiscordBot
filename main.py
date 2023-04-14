@@ -213,7 +213,7 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Updates the bot")
 async def update(ctx):
-    subprocess.run(["/home/dt/scripts/update.sh"], stdout=subprocess.PIPE)
+    subprocess.Popen(["/home/dt/scripts/update.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
 # E V E N T S
