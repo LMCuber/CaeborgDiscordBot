@@ -217,8 +217,8 @@ async def update(ctx):
 
 
 @bot.command(brief="nonoansidosd")
-async def sayhi(ctx):
-    ctx.send("i m not saiyingg hi")
+async def saybye(ctx):
+    ctx.send("i m not saiyingg bye")
 
 
 # E V E N T S
