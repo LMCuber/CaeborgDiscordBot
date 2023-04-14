@@ -16,6 +16,7 @@ from discord.ext import commands
 from PyDictionary import PyDictionary as PD
 from os.path import join as path
 import os
+import subprocess
 
 
 colorama.init(autoreset=True)
@@ -208,6 +209,11 @@ async def chem(ctx, *names):
     else:
         img_bytes = io.BytesIO(img_content)
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
+
+
+@bot.command(brief="Updates the bot")
+async def update(ctx):
+    subprocess.call("bash /home/dt/scripts/update.sh")
 
 
 # E V E N T S
