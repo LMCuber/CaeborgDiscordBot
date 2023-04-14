@@ -215,7 +215,7 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Updates the bot")
 async def update(ctx):
-    subprocess.Popen(["systemctl reload caeborg"])
+    os.system("systemctl reload caeborg")
 
 
 @bot.command(brief="nonoansidosd")
