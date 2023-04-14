@@ -216,6 +216,11 @@ async def update(ctx):
     subprocess.Popen(["/home/dt/scripts/update.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 
+@bot.command(brief="nonoansidosd")
+async def sayhi(ctx):
+    ctx.send("i m not saiyingg hi")
+
+
 # E V E N T S
 @bot.event
 async def on_command_error(ctx, error):
