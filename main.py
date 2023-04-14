@@ -215,7 +215,7 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Updates the bot")
 async def update(ctx):
-    subprocess.Popen(["/home/dt/scripts/update.sh"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.Popen(["/home/dt/scripts/update.sh"])
 
 
 @bot.command(brief="nonoansidosd")
