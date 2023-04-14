@@ -21,7 +21,7 @@ import os
 colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
-root = "/home/dt/git/CaeborgDiscordBot"
+root = "/home/dt/git/CaeborgDiscordBot/"
 
 
 # I N I T I A L I Z A T I O N
