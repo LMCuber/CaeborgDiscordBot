@@ -219,7 +219,7 @@ async def update(ctx):
     subprocess.run(["rm", "-rf", f"{home}/Caeborg"])
     subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", f"{home}/Caeborg"])
     await ctx.send("Replaced code...")
-    subprocess.run(["sudo", "-n", "restart", "caeborg"])
+    subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
     await ctx.send("Reboot complete.")
 
 
