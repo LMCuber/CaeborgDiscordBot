@@ -218,12 +218,12 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Updates the bot")
 async def update(ctx):
-    await ctx.send("Restarting...")
+    await ctx.send("Restarting services...")
     subprocess.run(["rm", "-rf", f"{home}/Caeborg"])
     subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", f"{home}/Caeborg"])
-    await ctx.send("Replaced code...")
+    await ctx.send("Regenerated code base...")
     subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
-    await ctx.send("Reboot complete.")
+    await ctx.send("Update complete.")
 
 
 @bot.command(brief="nonoansidosd")
