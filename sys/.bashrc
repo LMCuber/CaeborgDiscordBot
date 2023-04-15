@@ -76,3 +76,5 @@ alias lsproc='ps -e | grep python3'
 alias lspkg='dpkg --list | wc -l'
 alias vidaemon='sudo vim /etc/systemd/system/caeborg.service'
 alias vimain="vim $HOME/git/CaeborgDiscordBot/main.py"
+
+alias push="/home/dt/gitpush.sh"
