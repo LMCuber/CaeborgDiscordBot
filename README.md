@@ -2,6 +2,14 @@
 
 This is a custom Discord Bot written in Python that contains learning tools and quick access utilities. The idea is for the user to fork this project and run it on their own server. This way everyone gets a custom bot.
 
+---
+
+### Table of Contents
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Setup](#setup)
+
 ## Features  
 While the script is running, the user can call commands in a text channel, starting with a `!`, for example `!ping`, which will return the amount of latency between the user and the bot.
 * `ascii` - Converts image to ascii text  
