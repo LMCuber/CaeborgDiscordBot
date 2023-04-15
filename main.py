@@ -198,7 +198,10 @@ async def chem(ctx, *names):
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting...")
-    subprocess.Popen(['bash', f'{home}/restart.sh'])
+    subprocess.run(["rm", "-rf", f"{home}/Caeborg"])
+    subprocess.run(["git", "-C", "https://github.com/LMCuber/CaeborgDiscordBot", f"{home}/Caeborg"])
+    await ctx.send("Replaced code...")
+    subprocess.run(["sudo", "-n", "restart", "caeborg"])
     await ctx.send("Reboot complete")
 
 @bot.command(brief="nonoansidosd")
