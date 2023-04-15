@@ -3,6 +3,7 @@
 This is a custom Discord Bot written in Python that contains learning tools and quick access utilities. The idea is for the user to fork this project and run it on their own server. This way everyone gets a custom bot.
 
 ## Features  
+While the script is running, the user can call commands in a text channel, starting with a `!`, for example `!ping`, which will return the amount of latency between the user and the bot.
 * `ascii` - Converts image to ascii text  
 * `chem` - Returns the image of an organic compound, derived from the IUPAC name  
 * `clear` - Deletes the [:-n]th messages  
@@ -17,6 +18,7 @@ This is a custom Discord Bot written in Python that contains learning tools and 
 * `spanish` - Spanish conjugation of verb in present form  
 * `update` - Updates the bot  
 * `weather` - Gets the 4-hourly weather forecast of the given city  
+We have built in blacklists and it is possible to automate bans against users that overstep limitations, despite it not being built in. The default blacklist is accessible in `settings/blacklist.txt`.
 
 ## Prerequisites
 * Git - version 2.30+
