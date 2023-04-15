@@ -29,7 +29,7 @@ among_us = r"‼️‼️HOLY FUCKING SHIT‼️‼️‼️‼️ IS THAT A MOT
 
 # I N I T I A L I Z A T I O N
 # text files
-with open(f"{home}specs.json", "r") as f:
+with open(f"{home}/specs.json", "r") as f:
     j = json.loads(f.read())
     token = j["token"]
     owner_id = j["owner id"]
