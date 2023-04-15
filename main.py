@@ -105,8 +105,11 @@ async def kick(ctx, user: discord.Member, reason):
 # commands available to everyone
 @bot.command(brief="Shh...")
 async def rickroll(ctx):
-    await ctx.send(file=discord.File(path(f"{root}assets", "rickroll.gif")))
+    await ctx.send(file=discord.File(path(f"{root}/assets", "rickroll.gif")))
 
+@bot.command(brief="Shh...")
+async def pog(ctx):
+    await ctx.send(file=discord.File(path(f"{root}/assets", "pog.png")))
 
 @bot.command(brief="Calls this command")
 async def help(ctx, strcommand=None):
