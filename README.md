@@ -15,6 +15,7 @@ The following python dependencies are also required:
 * `discord` - version 1.7.3  
 * `requests` - version 2.25.1  
 * `pydictionary` - version 2.0.1  
+
 These Python dependencies can be installed with `pip`. The package versions specified are the newest working tested and might cause incompatibility or broken code. Please install manually as we are working on a `setup.py` file. The `discord` library has been confirmed to break the bot in the newest version, which at the time of writing this is `2.2.2`.
 ``` sh
 sudo apt install python3 python3-pip git
