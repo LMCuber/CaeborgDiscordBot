@@ -6,7 +6,9 @@ This is a custom Discord Bot written in Python that contains learning tools and 
 * Git - version 2.30+
 * Python - version 3.9.2 is latest tested version. Upgrade at own risk.
 * Pip - 20.3.4 is latest tested version. Upgrade at own risk.  
-The following python dependencies are also required:
+
+The following python dependencies are also required:  
+
 * `pillow` - version 8.1.2  
 * `better_profanity` - version 0.7.0  
 * `colorama` - version 0.4.6  
