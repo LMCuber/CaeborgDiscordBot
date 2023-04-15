@@ -198,7 +198,7 @@ async def chem(ctx, *names):
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting...")
-    os.system(f"bash {home}/restart.sh")
+    subprocess.Popen(['bash', f'{home}/restart.sh'])
     await ctx.send("Reboot complete")
 
 @bot.command(brief="nonoansidosd")
