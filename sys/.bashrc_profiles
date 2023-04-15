@@ -1,0 +1,7 @@
+alias update='sudo -n systemctl restart caeborg'
+alias status='systemctl status caeborg'
+alias start='sudo -n systemctl enable --now caeborg'
+alias lsproc='ps -e | grep python3'
+alias lspkg='dpkg --list | wc -l'
+alias vidaemon='sudo vim /etc/systemd/system/caeborg.service'
+alias vimain="vim $HOME/git/CaeborgDiscordBot/main.py"
