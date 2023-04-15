@@ -200,7 +200,7 @@ async def chem(ctx, *names):
 async def update(ctx):
     await ctx.send("Restarting...")
     subprocess.run(["rm", "-rf", f"{home}/Caeborg"])
-    subprocess.run(["git", "-C", f"{home}/Caeborg", "clone", "https://github.com/LMCuber/CaeborgDiscordBot"])
+    subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", f"{home}/Caeborg])
     await ctx.send("Replaced code...")
     subprocess.run(["sudo", "-n", "restart", "caeborg"])
     await ctx.send("Reboot complete")
