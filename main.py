@@ -201,7 +201,7 @@ async def update(ctx):
     subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", f"{home}/Caeborg"])
     await ctx.send("Replaced code...")
     subprocess.run(["sudo", "-n", "restart", "caeborg"])
-    await ctx.send("Reboot complete")
+    await ctx.send("Reboot complete.")
 
 @bot.command(brief="nonoansidosd")
 async def sayboo(ctx):
