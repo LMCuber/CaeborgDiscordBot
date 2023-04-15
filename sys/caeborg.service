@@ -1,0 +1,19 @@
+[Unit]
+Description=Caeborg Discord Bot
+Requires=network.target
+After=network.target systemd-ask-password-console.service multi-user.target
+
+[Service]
+User=dt
+# Environment=PYPATH=/home/dt/git/CaeborgDiscordBot
+# ExecStart=python3 $PYPATH/main.py
+# ExecReload=git -C $PYPATH/ pull --rebase && $PYPATH/main.py
+# EnvironmentFile=/etc/systemd/system/caeborg.env
+ExecStart=python3 /home/dt/Caeborg/main.py
+ExecReload=git -C /home/dt/Caeborg/ pull --rebase && /home/dt/Caeborg/main.py
+Type=simple
+Restart=always
+TimeoutSec=360
+
+[Install]
+WantedBy=default.target
