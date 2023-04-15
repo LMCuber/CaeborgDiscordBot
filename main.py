@@ -17,12 +17,14 @@ from os.path import join as path
 import os
 import subprocess
 
+
 colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
 home = "/home/dt"
 root = f"{home}/Caeborg"
 among_us = r"‼️‼️HOLY FUCKING SHIT‼️‼️‼️‼️ IS THAT A MOTHERFUCKING AMONG US REFERENCE??????!!!!!!!!!!11!1!1!1!1!1!1! 😱😱😱😱😱😱😱 AMONG US IS THE BEST FUCKING GAME 🔥🔥🔥🔥💯💯💯💯 RED IS SO SUSSSSS 🕵️🕵️🕵️🕵️🕵️🕵️🕵️🟥🟥🟥🟥🟥 COME TO MEDBAY AND WATCH ME SCAN 🏥🏥🏥🏥🏥🏥🏥🏥 🏥🏥🏥🏥 WHY IS NO ONE FIXING O2 🤬😡🤬😡🤬😡🤬🤬😡🤬🤬😡 OH YOUR CREWMATE? NAME EVERY TASK 🔫😠🔫😠🔫😠🔫😠🔫😠 Where Any sus!❓ ❓ Where!❓ ❓ Where! Any sus!❓ Where! ❓ Any sus!❓ ❓ Any sus! ❓ ❓ ❓ ❓ Where!Where!Where! Any sus!Where!Any sus Where!❓ Where! ❓ Where!Any sus❓ ❓ Any sus! ❓ ❓ ❓ ❓ ❓ ❓ Where! ❓ Where! ❓ Any sus!❓ ❓ ❓ ❓ Any sus! ❓ ❓ Where!❓ Any sus! ❓ ❓ Where!❓ ❓ Where! ❓ Where!Where! ❓ ❓ ❓ ❓ ❓ ❓ ❓ Any sus!❓ ❓ ❓ Any sus!❓ ❓ ❓ ❓ Where! ❓ Where! Where!Any sus!Where! Where! ❓ ❓ ❓ ❓ ❓ ❓ I think it was purple!👀👀👀👀👀👀👀👀👀👀It wasnt me I was in vents!!!!!!!!!!!!!!😂🤣😂🤣😂🤣😂😂😂🤣🤣🤣😂😂😂 r/amongusmemes r/unexpectedamongus r/expectedamongus perfectly balanced as all things should be r/unexpectedthanos r/expectedthanos for balance HOLY SHIT DID YOU JUST SAY THE WORD SUS???😳1?/1😱//1😳/1111!!!! Wait, you don't know what it is from?😳😳😳Let 👆give you a brief r/history. 📚📚📚👨‍🚀If you didn't r/knowyourshit, the r/term sus(suspicious) is a saying from the r/popular r/game r/AmongUs. Among us is so fun😔 👉👈, don't insult it, every youtuber and streamer says so!!!!!!!11 Corpses voice is so deep am i right or am i right😳😳????? I mean Mr beast and Dream play and pull big 🧠 1000000000000 iq moves in their videos..... YOU WERE THE IMPOSTER.... ඞ ඞ ඞ Get it because you don't know what sus means? r/stupidquestions r/youranidot r/stupidcuck. I CAnT BELEeVE YOUU dont KNoW WHT SUS MeaNS?/??!??!?!!🖕🖕🖕🖕🖕 Man why do i have to r/explain this to a r/idiot🤪🤪🤪📚📚📚... Sus is a GREAT WORD from a GREAT VIDEO GAME. in class, YOU CAN PLAY IT ON YOUR PHONE😜😜😜😜😜😜**??!?!?** such a masterpiece... FOR THE GREAT PRICE OF FREE!!!11!💰💰🤑🤑🤑🤑😜😜😜💰💰 It can also mean gay 😳😳😳😳"
+
 
 # I N I T I A L I Z A T I O N
 # text files
@@ -59,12 +61,15 @@ bot = commands.Bot(command_prefix="!",
                    activity=discord.Game(name="with your mom"))
 print("Client set up")
 
+
 # C U S T O M
 def gettext(url):
     return get(url).text
 
+
 def str_user(user):
     return str(user).split("#")[0]
+
 
 def get_ascii(pil_img, chars=('.', ',', ':', ';', '+', '*', '?', '%', '&', 'S', '@')):
     hl = 30
@@ -74,8 +79,10 @@ def get_ascii(pil_img, chars=('.', ',', ':', ';', '+', '*', '?', '%', '&', 'S', 
     ascii = [chars[int(sum(data[:3]) / 3 / 25)] + ("\n" if index % hl == 0 else "") for index, data in enumerate(d, 1)]
     return "".join(ascii)
 
+
 def no_link(str_):
     return str_.replace("[", "").replace("]", "")
+
 
 def command_data(command):
     return ([str(command)] if not str(command).startswith("_") else []) + [alias for alias in command.aliases]
@@ -88,28 +95,34 @@ def command_data(command):
 async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount + 1)
 
+
 @bot.command(brief="Kicks a user")
 @commands.is_owner()
 async def kick(ctx, user: discord.Member, reason):
     await user.kick(reason=reason)
-    
+
+
 # commands available to everyone
 @bot.command(brief="Shh...")
 async def rickroll(ctx):
     await ctx.send(file=discord.File(path(f"{root}assets", "rickroll.gif")))
 
+
 @bot.command(brief="Calls this command")
 async def help(ctx, strcommand=None):
     await ctx.send("```" + "\n".join(sorted([", ".join(command_data(command)) + " | " + (command.brief if command.brief is not None else "") for command in bot.commands if (str(command).lstrip("_") if strcommand is not None else strcommand) == strcommand])) + "```")
+
 
 @bot.command(aliases=["lidwoord"], brief="Gets whether noun is 'de' or 'het'")
 async def deofhet(ctx, noun):
     content = gettext(lidwoord_url + noun)
     await ctx.send(f'_{re.search(f"In de Nederlandse taal gebruiken wij (.*?) {noun}", content).group(1)}_ {noun}')
 
+
 @bot.command(brief="Gets the latency of the bot (ping) in milliseconds")
 async def ping(ctx):
     await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
+
 
 @bot.command(brief="Gets the 4-hourly weather forecast of the given city")
 async def weather(ctx, city):
@@ -126,6 +139,7 @@ async def weather(ctx, city):
         await ctx.send(f"Temperature: {int(temp - 272.15)}°C (Feels like {int(fltemp - 272.15)}°C)")
         await ctx.send(f"Humidity: {hum}%")
 
+
 @bot.command(aliases=["ascii"], brief="Converts image to ascii text")
 async def _ascii(ctx):
     try:
@@ -136,6 +150,7 @@ async def _ascii(ctx):
         await ctx.channel.purge(limit=1)
         b = gettext(img_url).content
         await ctx.send(f"`{get_ascii(PIL.Image.open(io.BytesIO(b)))}`")
+
 
 @bot.command(brief="Defines the given word ;)")
 async def define(ctx, word):
@@ -152,6 +167,7 @@ async def define(ctx, word):
         await ctx.send(d + "\n")
         await ctx.send(f"_{e}_")
 
+
 @bot.command(aliases=["inspirational-quote"], brief="Generates an inspirational quote")
 async def quote(ctx, *args):
     """
@@ -166,6 +182,7 @@ async def quote(ctx, *args):
     message = await ctx.send(file=discord.File(img_bytes, "quote.png"))
     await message.add_reaction(rofl)
     await message.add_reaction(neutral)
+
 
 @bot.command(brief="Spanish conjugation of verb in present form")
 async def spanish(ctx, verb):
@@ -182,6 +199,7 @@ async def spanish(ctx, verb):
         l = len(f"{p} {c}")
         await ctx.send(f"`{p}{' ' * (max_chars - l + 1)}{c}`")
 
+
 @bot.command(brief="Returns the image of an organic compound, derived from the IUPAC name")
 async def chem(ctx, *names):
     name = " ".join(names)
@@ -194,6 +212,7 @@ async def chem(ctx, *names):
         img_bytes = io.BytesIO(img_content)
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
 
+
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting...")
@@ -203,9 +222,11 @@ async def update(ctx):
     subprocess.run(["sudo", "-n", "restart", "caeborg"])
     await ctx.send("Reboot complete.")
 
+
 @bot.command(brief="nonoansidosd")
 async def sayboo(ctx):
     await ctx.send("i m not saiyingg bye")
+
 
 # E V E N T S
 @bot.event
@@ -219,9 +240,11 @@ async def on_command_error(ctx, error):
     else:
         print(error)
 
+
 @bot.event
 async def on_ready():
     print(Fore.GREEN + f"{bot.user} is online!")
+
 
 # profanity check
 @bot.event
@@ -234,5 +257,6 @@ async def on_message(msg):
     if c.lower() == "sus":
         await msg.channel.send(among_us)
     await bot.process_commands(msg)
+
 
 bot.run(token)
