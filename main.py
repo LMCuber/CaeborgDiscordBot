@@ -218,7 +218,7 @@ async def chem(ctx, *names):
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting...")
-    os.system("sudo -n systemctl restart caeborg")
+    os.system(f"bash {home}/restart.sh")
     await ctx.send("Reboot complete")
 
 
