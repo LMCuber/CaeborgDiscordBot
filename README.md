@@ -3,20 +3,20 @@
 This is a custom Discord Bot written in Python that contains learning tools and quick access utilities. The idea is for the user to fork this project and run it on their own server. This way everyone gets a custom bot.
 
 ## Features  
-* `ascii` | Converts image to ascii text  
-* `chem` | Returns the image of an organic compound, derived from the IUPAC name  
-* `clear` | Deletes the [:-n]th messages  
-* `define` | Defines the given word ;)  
-* `deofhet` | Gets whether noun is 'de' or 'het'  
-* `help` | Calls this command  
-* `kick` | Kicks a user  
-* `ping` | Gets the latency of the bot (ping) in milliseconds  
-* `quote` | Generates an inspirational quote  
-* `rickroll` | Shh...  
-* `sayboo` | nonoansidosd  
-* `spanish` | Spanish conjugation of verb in present form  
-* `update` | Updates the bot  
-* `weather` | Gets the 4-hourly weather forecast of the given city  
+* `ascii` - Converts image to ascii text  
+* `chem` - Returns the image of an organic compound, derived from the IUPAC name  
+* `clear` - Deletes the [:-n]th messages  
+* `define` - Defines the given word ;)  
+* `deofhet` - Gets whether noun is 'de' or 'het'  
+* `help` - Calls this command  
+* `kick` - Kicks a user  
+* `ping` - Gets the latency of the bot (ping) in milliseconds  
+* `quote` - Generates an inspirational quote  
+* `rickroll` - Shh...  
+* `sayboo` - nonoansidosd  
+* `spanish` - Spanish conjugation of verb in present form  
+* `update` - Updates the bot  
+* `weather` - Gets the 4-hourly weather forecast of the given city  
 
 ## Prerequisites
 * Git - version 2.30+
@@ -57,5 +57,3 @@ sudo -n systemctl-daemon reload
 sudo -n systemctl start --now caeborg
 ```
 If you do not want to set up a server, manually running `main.py` will do.
-
-
