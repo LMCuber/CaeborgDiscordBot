@@ -107,6 +107,10 @@ async def kick(ctx, user: discord.Member, reason):
 @bot.command(brief="Shh...")
 async def rickroll(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "rickroll.gif")))
+    
+@bot.command(brief="Shh...")
+async def ohno(ctx):
+    await ctx.send(file=discord.File(path(f"{root}/assets", "walter-white-falling.gif")))
 
 @bot.command(brief="Shh...")
 async def pog(ctx):
