@@ -111,7 +111,8 @@ async def rickroll(ctx):
 @bot.command(brief="Shh...")
 async def ohno(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "walter-white-falling.gif")))
-    
+
+@bot.command(brief="Shh...")
 async def whoasked(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "skeletons.gif")))
 
