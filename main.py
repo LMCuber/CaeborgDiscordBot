@@ -107,7 +107,7 @@ async def kick(ctx, user: discord.Member, reason):
 @bot.command(brief="Shh...")
 async def rickroll(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "rickroll.gif")))
-    
+
 @bot.command(brief="Shh...")
 async def ohno(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "walter-white-falling.gif")))
@@ -229,17 +229,13 @@ async def update(ctx):
     await ctx.send("Regenerated code base...")
     subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
     await ctx.send("Update complete.")
-    
 
-@bot.command(aliases=["poweroff"], brief="Shuts down server")
+
+@bot.command(aliases=["poweroff"], brief="Shuts down the server")
 async def shutdown(ctx):
     await ctx.send("Shutting down...")
     subprocess.run(["sudo", "-n", "systemctl", "poweroff"])
-
-
-@bot.command(brief="nonoansidosd")
-async def sayboo(ctx):
-    await ctx.send("i m not saiyingg bye")
+    await ctx.send("Shutting down complete")
 
 
 # E V E N T S
