@@ -229,6 +229,12 @@ async def update(ctx):
     await ctx.send("Regenerated code base...")
     subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
     await ctx.send("Update complete.")
+    
+
+@bot.command(aliases=["poweroff"], brief="Shuts down server")
+async def shutdown(ctx):
+    await ctx.send("Shutting down...")
+    subprocess.run(["sudo", "-n", "systemctl", "poweroff"])
 
 
 @bot.command(brief="nonoansidosd")
