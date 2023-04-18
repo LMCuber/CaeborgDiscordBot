@@ -25,8 +25,10 @@ import subprocess
 colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
-home = "/home/dt"
-root = f"{home}/Caeborg"
+with open("config.json", "r") as f:
+    data = json.load(f)
+    home = data["home"]
+    root = data["root"]
 among_us = r"‼️‼️HOLY FUCKING SHIT‼️‼️‼️‼️ IS THAT A MOTHERFUCKING AMONG US REFERENCE??????!!!!!!!!!!11!1!1!1!1!1!1! 😱😱😱😱😱😱😱 AMONG US IS THE BEST FUCKING GAME 🔥🔥🔥🔥💯💯💯💯 RED IS SO SUSSSSS 🕵️🕵️🕵️🕵️🕵️🕵️🕵️🟥🟥🟥🟥🟥 COME TO MEDBAY AND WATCH ME SCAN 🏥🏥🏥🏥🏥🏥🏥🏥 🏥🏥🏥🏥 WHY IS NO ONE FIXING O2 🤬😡🤬😡🤬😡🤬🤬😡🤬🤬😡 OH YOUR CREWMATE? NAME EVERY TASK 🔫😠🔫😠🔫😠🔫😠🔫😠 Where Any sus!❓ ❓ Where!❓ ❓ Where! Any sus!❓ Where! ❓ Any sus!❓ ❓ Any sus! ❓ ❓ ❓ ❓ Where!Where!Where! Any sus!Where!Any sus Where!❓ Where! ❓ Where!Any sus❓ ❓ Any sus! ❓ ❓ ❓ ❓ ❓ ❓ Where! ❓ Where! ❓ Any sus!❓ ❓ ❓ ❓ Any sus! ❓ ❓ Where!❓ Any sus! ❓ ❓ Where!❓ ❓ Where! ❓ Where!Where! ❓ ❓ ❓ ❓ ❓ ❓ ❓ Any sus!❓ ❓ ❓ Any sus!❓ ❓ ❓ ❓ Where! ❓ Where! Where!Any sus!Where! Where! ❓ ❓ ❓ ❓ ❓ ❓ I think it was purple!👀👀👀👀👀👀👀👀👀👀It wasnt me I was in vents!!!!!!!!!!!!!!😂🤣😂🤣😂🤣😂😂😂🤣🤣🤣😂😂😂 r/amongusmemes r/unexpectedamongus r/expectedamongus perfectly balanced as all things should be r/unexpectedthanos r/expectedthanos for balance HOLY SHIT DID YOU JUST SAY THE WORD SUS???😳1?/1😱//1😳/1111!!!! Wait, you don't know what it is from?😳😳😳Let 👆give you a brief r/history. 📚📚📚👨‍🚀If you didn't r/knowyourshit, the r/term sus(suspicious) is a saying from the r/popular r/game r/AmongUs. Among us is so fun😔 👉👈, don't insult it, every youtuber and streamer says so!!!!!!!11 Corpses voice is so deep am i right or am i right😳😳????? I mean Mr beast and Dream play and pull big 🧠 1000000000000 iq moves in their videos..... YOU WERE THE IMPOSTER.... ඞ ඞ ඞ Get it because you don't know what sus means? r/stupidquestions r/youranidot r/stupidcuck. I CAnT BELEeVE YOUU dont KNoW WHT SUS MeaNS?/??!??!?!!🖕🖕🖕🖕🖕 Man why do i have to r/explain this to a r/idiot🤪🤪🤪📚📚📚... Sus is a GREAT WORD from a GREAT VIDEO GAME. in class, YOU CAN PLAY IT ON YOUR PHONE😜😜😜😜😜😜**??!?!?** such a masterpiece... FOR THE GREAT PRICE OF FREE!!!11!💰💰🤑🤑🤑🤑😜😜😜💰💰 It can also mean gay 😳😳😳😳"
 
 
@@ -67,6 +69,10 @@ print("Client set up")
 
 
 # C U S T O M
+def getcontent(url):
+    return get(url).content
+
+
 def gettext(url):
     return get(url).text
 
@@ -95,7 +101,6 @@ def command_data(command):
 # C O M M A N D S
 # my commands
 @bot.command(brief=("Deletes the [:-n]th messages"))
-@commands.is_owner()
 async def clear(ctx, amount=1):
     await ctx.channel.purge(limit=amount + 1)
 
@@ -229,18 +234,27 @@ async def chem(ctx, *names):
 
 
 @bot.command(brief="Writes text to a meme")
-async def meme(ctx, text):
-    font = PIL.ImageFont.truetype("impact.ttf", 20)
-    img = Image.open("assets/pog.png")
-    draw = PIL.ImageDraw(img)
-    draw.text((5, 5), "Me when", (255, 255, 255), font=font)
-    img_bytes = io.BytesIO()
-    img.save(img_bytes, format="PNG")
-    img_bytes = byte.getvalue()
-    message = await ctx.send(file=discord.File(img_bytes, "meme.png"))
+async def meme(ctx, *text):
+    try:
+        img_url = img_url = ctx.message.attachments[0].url
+    except IndexError:
+        await ctx.send("Please input an image")
+    else:
+        text = " ".join(text)
+        await ctx.channel.purge(limit=1)
+        # font = PIL.ImageFont.load_default()
+        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 30)
+        _, _, fw, fh = font.getbbox(text)
+        img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
+        draw = PIL.ImageDraw.Draw(img)
+        draw.text((img.width / 2 - fw / 2, 10), text, (255, 255, 255), font=font)
+        img_path = f"{root}{text}.png"
+        img.save(img_path)
+        message = await ctx.send(file=discord.File(img_path, "meme.png"))
+        os.remove(img_path)
 
 
-# DON'T CHANGE
+# D O N ' T  C H A N G E
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting services...")
