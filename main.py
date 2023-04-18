@@ -7,6 +7,9 @@ import io
 import json
 import sys
 import PIL.Image
+import PIL.ImageDraw
+import PIL.ImageFont
+import imageio
 from better_profanity import profanity
 import colorama
 from colorama import Fore
@@ -225,6 +228,19 @@ async def chem(ctx, *names):
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
 
 
+@bot.command(brief="Writes text to a meme")
+async def meme(ctx, text):
+    font = PIL.ImageFont.truetype("impact.ttf", 20)
+    img = Image.open("assets/pog.png")
+    draw = PIL.ImageDraw(img)
+    draw.text((5, 5), "Me when", (255, 255, 255), font=font)
+    img_bytes = io.BytesIO()
+    img.save(img_bytes, format="PNG")
+    img_bytes = byte.getvalue()
+    message = await ctx.send(file=discord.File(img_bytes, "meme.png"))
+
+
+# DON'T CHANGE
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting services...")
