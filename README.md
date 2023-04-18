@@ -31,6 +31,7 @@ The following python dependencies are also required:
 * `discord` - version 1.7.3  
 * `requests` - version 2.25.1  
 * `pydictionary` - version 2.0.1  
+* `imageio` - version 2.27.0  
 
 These Python dependencies can be installed with `pip`. The package versions specified are the newest working tested and might cause incompatibility or broken code. Please install manually as we are working on a `setup.py` file. The `discord` library has been confirmed to break the bot in the newest version, which at the time of writing this is `2.2.2`.
 ``` sh
@@ -52,7 +53,7 @@ This project is designed to only be run on your computer, as we obviously do not
 
 If run on a dedicated Linux server, the setup is as follows:
 ``` sh
-echo "$USER ALL=(root) NOPASSWD: /bin/systemctl" > /etc/sudoers.tmp
+echo "$USER ALL=(root) NOPASSWD: /bin/systemctl" >> /etc/sudoers.tmp
 sudo -n systemctl-daemon reload
 sudo -n systemctl start --now caeborg
 ```
