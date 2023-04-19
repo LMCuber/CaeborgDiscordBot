@@ -18,29 +18,25 @@ from requests import get
 from discord.ext import commands
 from PyDictionary import PyDictionary as PD
 from os.path import join as path
+from os.path import expanduser
 import os
 import subprocess
-
+import sys
+from pprint import pprint
+sys.path.insert(1, expanduser("~"))
+from config import *
 
 colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
-with open(path(home, "config.json"), "r") as f:
-    data = json.load(f)
-    home = data["home"]
-    root = data["root"]
 among_us = r"‼️‼️HOLY FUCKING SHIT‼️‼️‼️‼️ IS THAT A MOTHERFUCKING AMONG US REFERENCE??????!!!!!!!!!!11!1!1!1!1!1!1! 😱😱😱😱😱😱😱 AMONG US IS THE BEST FUCKING GAME 🔥🔥🔥🔥💯💯💯💯 RED IS SO SUSSSSS 🕵️🕵️🕵️🕵️🕵️🕵️🕵️🟥🟥🟥🟥🟥 COME TO MEDBAY AND WATCH ME SCAN 🏥🏥🏥🏥🏥🏥🏥🏥 🏥🏥🏥🏥 WHY IS NO ONE FIXING O2 🤬😡🤬😡🤬😡🤬🤬😡🤬🤬😡 OH YOUR CREWMATE? NAME EVERY TASK 🔫😠🔫😠🔫😠🔫😠🔫😠 Where Any sus!❓ ❓ Where!❓ ❓ Where! Any sus!❓ Where! ❓ Any sus!❓ ❓ Any sus! ❓ ❓ ❓ ❓ Where!Where!Where! Any sus!Where!Any sus Where!❓ Where! ❓ Where!Any sus❓ ❓ Any sus! ❓ ❓ ❓ ❓ ❓ ❓ Where! ❓ Where! ❓ Any sus!❓ ❓ ❓ ❓ Any sus! ❓ ❓ Where!❓ Any sus! ❓ ❓ Where!❓ ❓ Where! ❓ Where!Where! ❓ ❓ ❓ ❓ ❓ ❓ ❓ Any sus!❓ ❓ ❓ Any sus!❓ ❓ ❓ ❓ Where! ❓ Where! Where!Any sus!Where! Where! ❓ ❓ ❓ ❓ ❓ ❓ I think it was purple!👀👀👀👀👀👀👀👀👀👀It wasnt me I was in vents!!!!!!!!!!!!!!😂🤣😂🤣😂🤣😂😂😂🤣🤣🤣😂😂😂 r/amongusmemes r/unexpectedamongus r/expectedamongus perfectly balanced as all things should be r/unexpectedthanos r/expectedthanos for balance HOLY SHIT DID YOU JUST SAY THE WORD SUS???😳1?/1😱//1😳/1111!!!! Wait, you don't know what it is from?😳😳😳Let 👆give you a brief r/history. 📚📚📚👨‍🚀If you didn't r/knowyourshit, the r/term sus(suspicious) is a saying from the r/popular r/game r/AmongUs. Among us is so fun😔 👉👈, don't insult it, every youtuber and streamer says so!!!!!!!11 Corpses voice is so deep am i right or am i right😳😳????? I mean Mr beast and Dream play and pull big 🧠 1000000000000 iq moves in their videos..... YOU WERE THE IMPOSTER.... ඞ ඞ ඞ Get it because you don't know what sus means? r/stupidquestions r/youranidot r/stupidcuck. I CAnT BELEeVE YOUU dont KNoW WHT SUS MeaNS?/??!??!?!!🖕🖕🖕🖕🖕 Man why do i have to r/explain this to a r/idiot🤪🤪🤪📚📚📚... Sus is a GREAT WORD from a GREAT VIDEO GAME. in class, YOU CAN PLAY IT ON YOUR PHONE😜😜😜😜😜😜**??!?!?** such a masterpiece... FOR THE GREAT PRICE OF FREE!!!11!💰💰🤑🤑🤑🤑😜😜😜💰💰 It can also mean gay 😳😳😳😳"
 
 
 # I N I T I A L I Z A T I O N
 # text files
-with open(f"{home}/specs.json", "r") as f:
-    j = json.loads(f.read())
-    token = j["token"]
-    owner_id = j["owner id"]
-with open(f"{root}/settings/blacklist.txt", "r") as f:
+with open(path(root, "settings", "blacklist.txt"), "r") as f:
     blacklist = f.read().splitlines()
-with open(f"{root}/settings/whitelist.txt", "r") as f:
+with open(path(root, "settings", "whitelist.txt"), "r") as f:
     whitelist = f.read().splitlines()
 
 print("Text files loaded")
@@ -122,11 +118,11 @@ async def ohno(ctx):
 
 @bot.command(brief="Shh...")
 async def whoasked(ctx):
-    await ctx.send(file=discord.File(path(f"{root}/assets", "skeletons.gif")))
+    await ctx.send(file=discord.File(path("root", "assets", "skeletons.gif")))
 
 @bot.command(brief="Shh...")
 async def pog(ctx):
-    await ctx.send(file=discord.File(path(f"{root}/assets", "pog.png")))
+    await ctx.send(file=discord.File(path("root", "assets", "pog.png")))
 
 @bot.command(brief="Calls this command")
 async def help(ctx, strcommand=None):
@@ -258,8 +254,8 @@ async def meme(ctx, *text):
 @bot.command(brief="Updates the bot")
 async def update(ctx):
     await ctx.send("Restarting services...")
-    subprocess.run(["rm", "-rf", f"{home}/Caeborg"])
-    subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", f"{home}/Caeborg"])
+    subprocess.run(["rm", "-rf", root])
+    subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", root])
     await ctx.send("Regenerated code base...")
     subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
     await ctx.send("Update complete.")
