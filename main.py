@@ -243,7 +243,7 @@ async def meme(ctx, *text):
         _, _, fw, fh = font.getbbox(text)
         img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
         draw = PIL.ImageDraw.Draw(img)
-        draw.text((img.width / 2 - fw / 2, 10), text, (255, 255, 255), font=font)
+        draw.text((img.width / 2 - fw / 2, 10), text, (0, 0, 0), font=font)
         img_path = f"{root}{text}.png"
         img.save(img_path)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
