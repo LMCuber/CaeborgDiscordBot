@@ -277,7 +277,7 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.NotOwner):
         await ctx.send("You have no permission to invoke this command.")
     else:
-        print(repr(error))
+        await ctx.send(repr(error))
 
 
 @bot.event
