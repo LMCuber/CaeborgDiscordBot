@@ -52,7 +52,7 @@ This project is designed to only be run on your computer, as we obviously do not
 
 If run on a dedicated Linux server, the setup is as follows:
 ``` sh
-echo "$USER ALL=(root) NOPASSWD: /bin/systemctl" > /etc/sudoers.tmp
+echo "$USER ALL=(root) NOPASSWD: /bin/systemctl" >> /etc/sudoers.tmp
 sudo -n systemctl-daemon reload
 sudo -n systemctl start --now caeborg
 ```
