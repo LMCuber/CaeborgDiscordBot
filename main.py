@@ -26,6 +26,7 @@ import sys
 from pprint import pprint
 sys.path.insert(1, expanduser("~"))
 from config import *
+import physics.py
 
 colorama.init(autoreset=True)
 rofl = "🤣"
@@ -60,7 +61,6 @@ chem_url = r"https://opsin.ch.cam.ac.uk/opsin/"
 conn_error = "Sorry, cannot send a request. Your server admin has probably blocked it or you're not connected to the internet."
 
 debugstate = False # Not a CONSTANT
-journal = [] # Not a CONSTANT
 
 # start
 bot = commands.Bot(command_prefix="!",
@@ -235,6 +235,11 @@ async def chem(ctx, *names):
         img_bytes = io.BytesIO(img_content)
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
 
+@bot.command(brief="Returns physics formulas. `list` for list of available arguments")
+async def nk(ctx, *arg):
+    global formulas
+    await ctx.send(formulas)
+    
 
 @bot.command(brief="Writes text to a meme")
 async def meme(ctx, text, color=None):
