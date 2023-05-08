@@ -58,6 +58,8 @@ chem_url = r"https://opsin.ch.cam.ac.uk/opsin/"
 
 conn_error = "Sorry, cannot send a request. Your server admin has probably blocked it or you're not connected to the internet."
 
+debugstate = False # Not a CONSTANT
+
 # start
 bot = commands.Bot(command_prefix="!",
                    owner_id=owner_id,
@@ -254,24 +256,6 @@ async def meme(ctx, text, color=None):
         os.remove(img_path)
 
 
-# D O N ' T  C H A N G E
-@bot.command(brief="Updates the bot")
-async def update(ctx):
-    await ctx.send("Restarting services...")
-    subprocess.run(["rm", "-rf", root])
-    subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", root])
-    await ctx.send("Regenerated code base...")
-    subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
-    await ctx.send("Update complete.")
-
-
-@bot.command(aliases=["poweroff"], brief="Shuts down the server")
-async def shutdown(ctx):
-    await ctx.send("Shutting down...")
-    subprocess.run(["sudo", "-n", "systemctl", "poweroff"])
-    await ctx.send("Shutting down complete")
-
-
 # E V E N T S
 @bot.event
 async def on_command_error(ctx, error):
@@ -303,5 +287,31 @@ async def on_message(msg):
         await msg.channel.send(among_us)
     await bot.process_commands(msg)
 
+# D O N ' T  C H A N G E
+@bot.command(brief="Updates the bot")
+async def update(ctx):
+    await ctx.send("Restarting services...")
+    subprocess.run(["rm", "-rf", root])
+    subprocess.run(["git", "clone", "https://github.com/LMCuber/CaeborgDiscordBot", root])
+    await ctx.send("Regenerated code base...")
+    subprocess.run(["sudo", "-n", "systemctl", "restart", "caeborg"])
+    await ctx.send("Update complete.")
+
+
+@bot.command(aliases=["poweroff"], brief="Shuts down the server")
+async def shutdown(ctx):
+    await ctx.send("Shutting down...")
+    subprocess.run(["sudo", "-n", "systemctl", "poweroff"])
+    await ctx.send("Shutting down complete")
+
+@bot.command(alias=["debug"], brief="Enters debug mode and enables journal printing")
+async def debug(ctx):
+    if debugstate:
+        debugstate = True
+        while debugstate:
+            await ctx.send(subprocess.run(["journalctl", "-f"], capture_output=True))
+    else:
+        debugstate = False
+        
 
 bot.run(token)
