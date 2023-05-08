@@ -315,11 +315,11 @@ async def shutdown(ctx):
 @bot.command(alias=["debug"], brief="Enters debug mode and enables journal printing")
 async def debug(ctx):
     if debugstate:
+        debugstate = False
+    else:
         debugstate = True
         while debugstate:
             await ctx.send(subprocess.run(["journalctl", "-f"], capture_output=True))
-    else:
-        debugstate = False
         
 
 bot.run(token)
