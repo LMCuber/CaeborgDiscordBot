@@ -325,7 +325,7 @@ async def debug(ctx):
         while debugstate:
             # await ctx.send(subprocess.run(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"], capture_output=True))
             # sleep(0.5)
-            await ctx.send(subprocess.check_output(["journalctl --no-pager -n 1 | grep -Ev '(GMT|BST)'"]))
+            await ctx.send(subprocess.check_output(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"]))
         
 
 bot.run(token)
