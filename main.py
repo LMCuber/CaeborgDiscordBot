@@ -42,6 +42,8 @@ with open(path(root, "settings", "whitelist.txt"), "r") as f:
 print("Text files loaded")
 
 # constants
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
 profanity.load_censor_words(whitelist_words=whitelist)
 profanity.add_censor_words(blacklist)
 inspq_url = r"https://zenquotes.io/api/random"
@@ -60,7 +62,8 @@ conn_error = "Sorry, cannot send a request. Your server admin has probably block
 bot = commands.Bot(command_prefix="!",
                    owner_id=owner_id,
                    help_command=None,
-                   activity=discord.Game(name="with your mom"))
+                   activity=discord.Game(name="with your mom"),
+                   intents=discord.Intents.all())
 print("Client set up")
 
 
@@ -230,20 +233,21 @@ async def chem(ctx, *names):
 
 
 @bot.command(brief="Writes text to a meme")
-async def meme(ctx, *text):
+async def meme(ctx, text, color=None):
     try:
         img_url = img_url = ctx.message.attachments[0].url
     except IndexError:
         await ctx.send("Please input an image")
     else:
-        text = " ".join(text)
+        if color is None:
+            color = "black"
         await ctx.channel.purge(limit=1)
         # font = PIL.ImageFont.load_default()
-        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 30)
+        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 60)
         _, _, fw, fh = font.getbbox(text)
         img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
         draw = PIL.ImageDraw.Draw(img)
-        draw.text((img.width / 2 - fw / 2, 10), text, (0, 0, 0), font=font)
+        draw.text((img.width / 2 - fw / 2, 10), text, color, font=font)
         img_path = f"{root}{text}.png"
         img.save(img_path)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
@@ -278,11 +282,13 @@ async def on_command_error(ctx, error):
         await ctx.send("You have no permission to invoke this command.")
     else:
         await ctx.send(repr(error))
+        print(repr(error))
 
 
 @bot.event
 async def on_ready():
-    print(Fore.GREEN + f"{bot.user} is online!")
+    text = f"{bot.user} is online!"
+    print(Fore.GREEN + text)
 
 
 # profanity check
