@@ -26,7 +26,7 @@ import sys
 from pprint import pprint
 sys.path.insert(1, expanduser("~"))
 from config import *
-import physics.py
+import physics
 
 colorama.init(autoreset=True)
 rofl = "🤣"
