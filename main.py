@@ -242,14 +242,20 @@ async def meme(ctx, text, color=None):
         if color is None:
             color = "black"
         await ctx.channel.purge(limit=1)
+        # load the passed image
         img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
+        # get image size
         img_width, img_height = img.size
-        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), int(img_width * 0.1))
+        # init font
+        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 60)
+        # create empty text image and render onto it
         _, _, fw, fh = font.getbbox(text)
-        draw = PIL.ImageDraw.Draw(img)
+        text_img = PIL.Image.new("RGBA", (fw, fh))
+        draw = PIL.ImageDraw.Draw(text_img)
         draw.text((img.width / 2 - fw / 2, 10), text, color, font=font)
+        # save and message the image
         img_path = f"{root}{text}.png"
-        img.save(img_path)
+        text_img.save(img_path)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
         os.remove(img_path)
 
