@@ -314,6 +314,7 @@ async def shutdown(ctx):
 
 @bot.command(alias=["debug"], brief="Enters debug mode and enables journal printing")
 async def debug(ctx):
+    global debugstate
     if debugstate:
         debugstate = False
     else:
