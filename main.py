@@ -60,6 +60,7 @@ chem_url = r"https://opsin.ch.cam.ac.uk/opsin/"
 conn_error = "Sorry, cannot send a request. Your server admin has probably blocked it or you're not connected to the internet."
 
 debugstate = False # Not a CONSTANT
+journal = [] # Not a CONSTANT
 
 # start
 bot = commands.Bot(command_prefix="!",
@@ -323,9 +324,8 @@ async def debug(ctx):
         debugstate = True
         await ctx.send("Enabled debug mode.")
         while debugstate:
-            # await ctx.send(subprocess.run(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"], capture_output=True))
-            # sleep(0.5)
-            await ctx.send(subprocess.check_output(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"]))
+            await ctx.send(subprocess.run(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"], capture_output=True))
+            sleep(0.5)
         
 
 bot.run(token)
