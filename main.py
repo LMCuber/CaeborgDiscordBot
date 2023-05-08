@@ -1,6 +1,7 @@
 print("File main.py found")
 
 # Update testing
+from time import sleep
 import re
 import random
 import io
