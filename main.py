@@ -236,7 +236,7 @@ async def chem(ctx, *names):
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
 
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
-async def nk(ctx, *arg):
+async def nk(ctx, arg):
     global formulas
     await ctx.send(formulas)
     
