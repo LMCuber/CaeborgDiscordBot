@@ -322,7 +322,8 @@ async def debug(ctx):
         debugstate = True
         await ctx.send("Enabled debug mode.")
         while debugstate:
-            await ctx.send(subprocess.run(["journalctl", "-f"], capture_output=True))
+            await ctx.send(subprocess.run(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"], capture_output=True))
+            sleep 0.5
         
 
 bot.run(token)
