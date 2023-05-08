@@ -317,8 +317,10 @@ async def debug(ctx):
     global debugstate
     if debugstate:
         debugstate = False
+        await ctx.send("Disabled debug mode.")
     else:
         debugstate = True
+        await ctx.send("Enabled debug mode.")
         while debugstate:
             await ctx.send(subprocess.run(["journalctl", "-f"], capture_output=True))
         
