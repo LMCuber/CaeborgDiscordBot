@@ -250,8 +250,8 @@ async def meme(ctx, text, color=None):
         font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 60)
         # create empty text image and render onto it
         _, _, fw, fh = font.getbbox(text)
-        fw *= 075
-        fh *= 0.75
+        fw = int(fw * 0.75)
+        fh = int(fh * 0.75)
         text_img = PIL.Image.new("RGBA", (fw, fh))
         draw = PIL.ImageDraw.Draw(text_img)
         draw.text((img.width / 2 - fw / 2, 10), text, color, font=font)
