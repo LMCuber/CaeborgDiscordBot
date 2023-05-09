@@ -574,27 +574,27 @@ formulas = {
                 "A = l·b",
                 ("A = oppervlakte (m^2)", "l = lengte (m)", "b = breedte (m)")
         ),
-        
+
         "inhoud_blok": (
                 "V =l·b·h",
                 ("V = volume (m^3)", "l = lengte (m)", "b = breedte (m)", "h = hoogte (m)")
         ),
-        
+
         "omtrek_cirkel": (
                 "s = 2π·r",
                 ("s = omtrek (m)", "r = straal (m)")
         ),
-        
+
         "oppervlakte_cirkel": (
                 "A = π·r^2",
                 ("A = oppervlakte (m^2)", "r = straal (m)")
         ),
-        
+
         "oppervlakte_bol": (
                 "A = 4π·r^2",
                 ("A = oppervlakte (m^2)", "r = straal (m)")
         ),
-        
+
         "volume_bol": ("V =( 4/3)·π·r3", ("V = volume (m3)", "r = straal (m)")
         ),
 }
