@@ -256,16 +256,16 @@ async def nk(ctx, arg):
             formulas[arg][0]
         except KeyError:
             correction, accuracy = correct(arg, formula_names)
-            await ctx.send(f"No formula found. Did you mean ```{correction}```? (Accuracy: {round(accuracy * 100, 2)}%)")
+            await ctx.send(f"No formula found. Did you mean `{correction}`? (Accuracy: {int(accuracy * 100)}%)")
             await ctx.send(f"If so:")
             arg = correction
         finally:
             form_base = formulas[arg][0]
             form_explanations = formulas[arg][1]
-            await ctx.send(f"*Base formula:* {form_base}")
+            await ctx.send(f"*Base formula:* `{form_base}`")
             await ctx.send("*Contextual definitions:*")
             for explanation in form_explanations:
-                await ctx.send(explanation)
+                await ctx.send(f"`{explanation}`")
 
 
 @bot.command(brief="Writes text to a meme")
