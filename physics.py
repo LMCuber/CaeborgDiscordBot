@@ -357,7 +357,7 @@ formulas = {
         
         "transformator": (
                 "Np/Ns = Up/Us = Is/Ip",
-                ("Np = primaire windingen", "Ns = secundaire windingen", "Up = primaire spanning (V)", "Us = secundaire spanning (V)", "Ip = primaire stroom (A)", "Is = secundaire stroom (A)"
+                ("Np = primaire windingen", "Ns = secundaire windingen", "Up = primaire spanning (V)", "Us = secundaire spanning (V)", "Ip = primaire stroom (A)", "Is = secundaire stroom (A)")
         ),
 
         "fotonenergie": (
