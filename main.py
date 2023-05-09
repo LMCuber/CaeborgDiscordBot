@@ -238,12 +238,16 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
 async def nk(ctx, arg):
-    form_base = formulas[arg][0]
-    form_explanations = formulas[arg][1]
-    await ctx.send(f"*Base formula:* {form_base}")
-    await ctx.send("*Contextual definitions:*")
-    for explanation in form_explanations:
-        await ctx.send(explanation)
+    if arg == "help":
+        for formula in formulas:
+            await ctx.send(formula)
+    else:
+        form_base = formulas[arg][0]
+        form_explanations = formulas[arg][1]
+        await ctx.send(f"*Base formula:* {form_base}")
+        await ctx.send("*Contextual definitions:*")
+        for explanation in form_explanations:
+            await ctx.send(explanation)
     
 
 @bot.command(brief="Writes text to a meme")
