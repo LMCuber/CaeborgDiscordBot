@@ -256,7 +256,7 @@ async def nk(ctx, arg):
             formulas[arg][0]
         except KeyError:
             correction, accuracy = correct(arg, formula_names)
-            await ctx.send(f"_No formula found. Did you mean {correction}? (Accuracy: {round(accuracy * 100, 2)}%_")
+            await ctx.send(f"No formula found. Did you mean ```{correction}```? (Accuracy: {round(accuracy * 100, 2)}%)")
             await ctx.send(f"If so:")
             arg = correction
         finally:
