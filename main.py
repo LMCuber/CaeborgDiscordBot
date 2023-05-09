@@ -20,6 +20,7 @@ from discord.ext import commands
 from PyDictionary import PyDictionary as PD
 from os.path import join as path
 from os.path import expanduser
+from difflib import SequenceMatcher
 import os
 import subprocess
 import sys
@@ -72,6 +73,15 @@ print("Client set up")
 
 
 # C U S T O M
+def correct(word, words):
+    max_ = (None, 0)
+    for w in words:
+        sm = SequenceMatcher(None, word, w)
+        if sm.ratio() > max_[1]:
+            max_ = (w, sm.ratio())
+    return max_
+
+
 def getcontent(url):
     return get(url).content
 
@@ -234,7 +244,7 @@ async def chem(ctx, *names):
     else:
         img_bytes = io.BytesIO(img_content)
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
-        
+
 
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
 async def nk(ctx, arg):
@@ -242,13 +252,21 @@ async def nk(ctx, arg):
         for formula in formulas:
             await ctx.send(formula)
     else:
-        form_base = formulas[arg][0]
-        form_explanations = formulas[arg][1]
-        await ctx.send(f"*Base formula:* {form_base}")
-        await ctx.send("*Contextual definitions:*")
-        for explanation in form_explanations:
-            await ctx.send(explanation)
-    
+        try:
+            formulas[arg][0]
+        except KeyError:
+            correction = correct(arg, formula_names)
+            await ctx.send(f"_No formula found. Did you mean {correction}?_")
+            await ctx.send(f"If so:")
+            arg = correction
+        finally:
+            form_base = formulas[arg][1]
+            form_explanations = formulas[arg][1]
+            await ctx.send(f"*Base formula:* {form_base}")
+            await ctx.send("*Contextual definitions:*")
+            for explanation in form_explanations:
+                await ctx.send(explanation)
+
 
 @bot.command(brief="Writes text to a meme")
 async def meme(ctx, text, color=None):
@@ -328,6 +346,7 @@ async def shutdown(ctx):
     subprocess.run(["sudo", "-n", "systemctl", "poweroff"])
     await ctx.send("Shutting down complete")
 
+
 @bot.command(alias=["debug"], brief="Enters debug mode and enables journal printing")
 async def debug(ctx):
     global debugstate
@@ -340,6 +359,6 @@ async def debug(ctx):
         while debugstate:
             await ctx.send(subprocess.run(["journalctl", "--no-pager", "-n", "1", "|", "grep", "-Ev", "'(GMT|BST)'"], capture_output=True))
             sleep(0.5)
-        
+
 
 bot.run(token)
