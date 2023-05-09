@@ -289,4 +289,135 @@ formulas = {
                 "Utotaal = U1 + U2 + …", 
                 ("Utotaal = totaalspanning (V)", "U1,2,…… = deelspanningen (U)")
         ),
+
+        "stroom_parallel": (
+                "I_hoofd = I_1 + I_2 + ...",
+                ("I_hoofd = hoofdstroom (A)", "I_1,2 = deelstromen (A)")
+        ),
+
+        "spanning_parallel": (
+                "U1 = U2 = U3 = …",
+                ("U1,2,… = deelspanningen (U)")
+        ),
+        
+        "wet_van_kirchhoff_stroom": (
+                "ΣIn = 0",
+                ("I1,2,3,… = deelstromen van/naar één punt (A)")
+        ),
+        
+        "wet_van_kirchhoff_spanning": (
+                "ΣUn = 0",
+                ("U1,2,3,… = deelspanningen in kring (V)")
+        ),
+        
+        "wet_van_coulomb": (
+                "Fel = f·Qq/r2",
+                ("Fel = kracht(N)", "f = 8,987551787·109 Nm2/C2", "Q,q = ladingen(C)", "r = afstand (m)")
+        ),
+        
+        "veldsterkte": (
+                "E = F/q",
+                ("E = veldsterkte (N/C)", "F = kracht (N)", "q = lading (C)")
+        ),
+        
+        "elektrische_spanning": (
+                "ΔU = ΔEel/q",
+                ("ΔU = spanningsverschil (V)", "ΔEel = energieverschil (J)", "q = lading (C)")
+        ),
+        
+        "magnetische_veldsterkte_spoel": (
+                "B = μ0·N·I/L",
+                ("B = magnetische veldsterkte (T)", "μ0 = 1,256643706·10-6 H/m", "N = aantal wikkelingen", "I = stroomsterkte (A)", "L = spoellengte (m)")
+        ),
+        
+        "lorentzkracht_deeltje": (
+                "FL = B·q·v",
+                ("FL = lorentzkracht (N)", "B = magnetische veldsterkte (T)", "q = lading (C)", "v = snelheid (m/s)")
+        ),
+        
+        "lorentzkracht_draad": (
+                "FL = B·I·L",
+                ("FL = lorentzkracht (N)", "B = magnetische veldsterkte (T)", "I =stroomsterkte (A)", "L =draadlengte (m)")
+        ),
+        
+        "flux": (
+                "Φ = B·A",
+                ("Φ = magnetische flux (Wb)", "B = magnetische veldsterkte (T)", "A = oppervlak (m2)")
+        ),
+        
+        "inductiespanning": (
+                "Uind = N·ΔΦ/Δt",
+                ("Uind = inductiespanning (V)", "N = aantal windingen", "ΔΦ = fluxverandering (Wb)", "Δt = tijdsduur (s)")
+        ),
+        
+        "wisselspanning_sinusvormig": (
+                "Ueff = ½√2·Umax",
+                ("Ueff = effectieve spanning (V)", "Umax = maximale spanning (V)")
+        ),
+        
+        "transformator": (
+                "Np/Ns = Up/Us = Is/Ip",
+                ("Np = primaire windingen", "Ns = secundaire windingen", "Up = primaire spanning (V)", "Us = secundaire spanning (V)", "Ip = primaire stroom (A)", "Is = secundaire stroom (A)"
+        ),
+
+        "fotonenergie": (
+                "Ef = h·f = h·c/λ",
+                ("Efoton = energie per foton (J)", "h = 6,62606957·10-34 Js", "f = frequentie (Hz)", "c = 2,9979·108", "λ = golflengte (m)")
+        ),
+                
+        "overgang": (
+                "Ef = |Em-En|",
+                ("Ef = fotonenergie (J)", "Em = energieniveau voor (J)", "En = energieniveau na (J)")
+        ),
+                
+        "remspanning": (
+                "|q·Urem|= Efoton - Euittree",
+                ("q = 1,602176565·10-19 C", "Urem = remspanning (V)", "Efoton = fotonenergie (J)", "Euittree = uittree-energie (J)")
+        ),
+                
+        "energie_waterstofatoom": (
+                "En = -13,6 / n2",
+                ("En = energie t.o.v. ionisatieniveau (eV)", "n = quantumgetal (1,2,3,…)")
+        ),
+                
+        "de_brogliegolflengte": (
+                "λ = h/p = h
+                (mv)", ("λ = golflengte deeltje (m)", "h = 6,62606957·10-34 Js", "p = impuls (kg m/s)", "m = massa (kg)", "v = snelheid (m/s)")
+        ),
+                
+        "heisenbergrelatie": (
+                "Δx·Δp ≥ h/4π",
+                ("Δx = onzekerheid plaats (m)", "Δp = onzekerheid impuls (kg m/s)", "h = 6,62606957·10-34 Js")
+        ),
+                
+        "opgesloten_deeltje": (
+                "En = n2h2/8mL2",
+                ("En = energie (J)", "n = niveau (1,2,3,…)", "h = 6,62606957·10-34 Js", "m = massa (kg)", "L = breedte put (m)")
+        ),
+                
+        "wet_van_wien": (
+                "λmax = kW/T",
+                ("λmax = golflengte maximum (m)", "kW = 2,8977721·10-3 mK", "T = temperatuur (K)")
+        ),
+                
+        "dopplereffect": (
+                "v = c· Δλ/λ",
+                ("v = radiële snelheid (ms-1)", "c = 2,99792458·108 ms-1", "Δλ = golflengteverschuiving (m)", "λ = golflengte (m)")
+        ),
+                
+        "stefan-boltzmann": (
+                "Pbron = σAT4",
+                ("Pbron = vermogen (W)", "σ = 5,670373·10-8 Wm-2K-4", "A = oppervlakte (m2)", "T = temperatuur (K)")
+        ),
+                
+        "kwadratenwet": (
+                "I = Pbron/4πr2",
+                ("I = intensiteit (Wm-2)", "Pbron = vermogen (W)", "r = afstand (m)")
+        ),
+
+        "wet_van_snellius": (
+                "sin i / sin r = nr / ni",
+                ("i = invalshoek (graden)", "r = brekingshoek (graden)", "nr = brekingsindex brekingskant", "ni = brekingsindex invalskant")
+        )
+
 }
