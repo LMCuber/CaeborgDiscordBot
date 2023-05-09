@@ -262,7 +262,7 @@ async def nk(ctx, arg):
         finally:
             form_base = formulas[arg][0]
             form_explanations = formulas[arg][1]
-            await ctx.send(f"*Base formula:* `{form_base}`")
+            await ctx.send(f"*Base formula:*\n`{form_base}`")
             await ctx.send("*Contextual definitions:*")
             for explanation in form_explanations:
                 await ctx.send(f"`{explanation}`")
