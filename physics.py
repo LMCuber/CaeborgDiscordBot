@@ -418,6 +418,122 @@ formulas = {
         "wet_van_snellius": (
                 "sin i / sin r = nr / ni",
                 ("i = invalshoek (graden)", "r = brekingshoek (graden)", "nr = brekingsindex brekingskant", "ni = brekingsindex invalskant")
-        )
+        ),
+
+        "grenshoek": (
+                "sin g = nr / ni",
+                ("g = grenshoek (graden)", "nr = brekingsindex brekingskant", "ni = brekingsindex invalskant")
+        ),
+
+        "lenssterkte": (
+                "S = 1/f",
+                ("S = lenssterkte (dpt)", "f = brandpuntsafstand (m)")
+        ),
+
+        "lenswet": (
+                "S = 1/b + 1/v",
+                ("S = lenssterkte (dpt)", "b = beeldafstand (m)", "v = voorwerpsafstand (m)")
+        ),
+
+        "vergroting": (
+                "N = |b/v|",
+                ("N =vergroting", "b = beeldafstand (m)", "v = voorwerpsafstand (m)")
+        ),
+
+        "tralieformule": (
+                "sin α = nλ/d",
+                ("α = hoek maximum", "n = orde (0,1,2,…)", "λ = golflengte (m)", "d = tralieconstante (m)")
+        ),
+
+        "aantal_kernen": (
+                "N(t) = N0·½t/t½",
+                ("N(t) = hoeveelheid kernen", "N0 = beginhoeveelheid", "t = tijd (s)", "t½ = halveringstijd (s)")
+        ),
+
+        "activiteitsafname": (
+                "A(t) = A0·½t/t½",
+                ("A(t) = activiteit (Bq)", "A0 = beginactiv. (Bq)", "t = tijd (s)", "t½ = halveringstijd (s)")
+        ),
+
+        "activiteit": (
+                "A = N (ln 2)/t½)",
+                ("A = activiteit (Bq)", "N = aantal kernen", "t½ = halveringstijd (s)")
+        ),
+
+        "verzwakking_straling": (
+                "I = I0·½d/d½",
+                ("I = intensiteit (W)", "I0 = opvallende intensiteit (W)", "d = diepte (m)", "d½ = halveringsdikte (m)")
+        ),
+
+        "dosis": (
+                "D = Eabs/m",
+                ("D = dosis (Gy)", "Eabs = geabsorbeerde energie (J)", "m = massa (kg)")
+        ),
+                
+        "dosisequivalent": (
+                "H = wR· Eabs/m",
+                ("H = dosisequivalent (Sv)", "wR = weegfactor", "Eabs = geabsorbeerde energie (J)", "m = massa (kg)")
+        ),
+
+        "massa_en_energie": (
+                "E = Δm·c2",
+                ("E = energie (J)", "Δ m = massaverschil (kg)", "c = 2,99792458·108m/s")
+        ),
+
+        "dichtheid": (
+                "ρ = m/V",
+                ("ρ = dichtheid (kg/m3)", "m = massa (kg)", "V = volume (m3)")
+        ),
+
+        "temperatuur": (
+                "TK = T°C + 273,15",
+                ("TK = temperatuur in Kelvin (K)", "T°C = temperatuur in °C")
+        ),
+
+        "druk": (
+                "P = F/A",
+                ("P = druk (Pa)", "F = kracht (N)", "A = oppervlakte (m2)")
+        ),
+
+        "wet_van_boyle": (
+                        "P·V = constant",
+                        ("P = druk (Pa)", "V = volume (m3)")
+                ),
+                
+        "wet_van_gay_lussac": (
+                        "P/T = constant",
+                        ("P = druk (Pa)", "T = temperatuur (K)")
+                ),
+                
+        "verband_p_en_n": (
+                        "P/n =constant",
+                        ("P = druk (Pa)", "n = aantal mol")
+                ),
+                
+        "algemene_gaswet": (
+                        "pV = nRT",
+                        ("p = druk (Pa)", "V = volume (m3)", "n = aantal mol", "R = 8,3144621 J/mol·K", "T = temperatuur (K)")
+                ),
+                
+        "warmtecapaciteit": (
+                        "Q = C·ΔT",
+                        ("Q = warmte (J)", "C = warmtecapaciteit (J/K>", "ΔT = temperatuurverschil (K)")
+                ),
+                
+        "soortelijke_warmte": (
+                        "Q = c·m·ΔT",
+                        ("Q = warmte (J)", "c = soortelijke warmte (J/(K·kg)>", "m = massa (kg)", "ΔT = temperatuurverschil (K)")
+                ),
+                
+        "warmtestroom": (
+                        "P = λ·A·ΔT/d",
+                        ("P = warmtestroom (J/s)", "λ = warmtegeleidingscoëfficient (J/(K·m))", "A = oppervlakte (m2)", "ΔT = temperatuurverschil (K)", "d = dikte (m)")
+                ),
+                
+        "druk_in_vloeistoffen": (
+                        "p = ρ·g·h",
+                        ("p = druk (Pa)", "ρ = dichtheid (kg/m3)", "g = 9,81 m/s2 (op aarde)", "h = diepte (m)")
+                ),
+        
 
 }
