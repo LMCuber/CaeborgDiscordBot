@@ -267,10 +267,7 @@ async def nk(ctx, arg):
             form_base = formulas[arg][0]
             form_explanations = formulas[arg][1]
             await ctx.send(f"*Base formula:*\n```{form_base}```")
-            multiline_explanation = "*Contextual definitions:*"
-                                    + "```"
-                                    + "\n".join(form_explanations)
-                                    + "```"
+            multiline_explanation = "*Contextual definitions:*" + "```" + "\n".join(form_explanations) + "```"
             await ctx.send(multiline_explanation)
 
 
