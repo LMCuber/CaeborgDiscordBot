@@ -381,8 +381,8 @@ formulas = {
         ),
                 
         "de_brogliegolflengte": (
-                "λ = h/p = h
-                (mv)", ("λ = golflengte deeltje (m)", "h = 6,62606957·10-34 Js", "p = impuls (kg m/s)", "m = massa (kg)", "v = snelheid (m/s)")
+                "λ = h/p = h (mv)",
+                ("λ = golflengte deeltje (m)", "h = 6,62606957·10-34 Js", "p = impuls (kg m/s)", "m = massa (kg)", "v = snelheid (m/s)")
         ),
                 
         "heisenbergrelatie": (
@@ -498,42 +498,77 @@ formulas = {
         "wet_van_boyle": (
                         "P·V = constant",
                         ("P = druk (Pa)", "V = volume (m3)")
-                ),
+        ),
                 
         "wet_van_gay_lussac": (
                         "P/T = constant",
                         ("P = druk (Pa)", "T = temperatuur (K)")
-                ),
+        ),
                 
         "verband_p_en_n": (
                         "P/n =constant",
                         ("P = druk (Pa)", "n = aantal mol")
-                ),
+        ),
                 
         "algemene_gaswet": (
                         "pV = nRT",
                         ("p = druk (Pa)", "V = volume (m3)", "n = aantal mol", "R = 8,3144621 J/mol·K", "T = temperatuur (K)")
-                ),
+        ),
                 
         "warmtecapaciteit": (
                         "Q = C·ΔT",
                         ("Q = warmte (J)", "C = warmtecapaciteit (J/K>", "ΔT = temperatuurverschil (K)")
-                ),
+        ),
                 
         "soortelijke_warmte": (
                         "Q = c·m·ΔT",
                         ("Q = warmte (J)", "c = soortelijke warmte (J/(K·kg)>", "m = massa (kg)", "ΔT = temperatuurverschil (K)")
-                ),
+        ),
                 
         "warmtestroom": (
                         "P = λ·A·ΔT/d",
                         ("P = warmtestroom (J/s)", "λ = warmtegeleidingscoëfficient (J/(K·m))", "A = oppervlakte (m2)", "ΔT = temperatuurverschil (K)", "d = dikte (m)")
-                ),
+        ),
                 
         "druk_in_vloeistoffen": (
                         "p = ρ·g·h",
                         ("p = druk (Pa)", "ρ = dichtheid (kg/m3)", "g = 9,81 m/s2 (op aarde)", "h = diepte (m)")
-                ),
+        ),
+        
+        "tijddilatatie": (
+                "Δtb = γ·Δte",
+                ("tb = tijd waarnemer(s)", "te = eigen tijd (s)", "γ = gammafactor")
+        ),
+                
+        "gammafactor": (
+                "γ = 1 / (1 - v2/c2)",
+                ("γ = gammafactor", "v = snelheid (ms-1)", "c = 2,9979·108 ms-1")
+        ),
+        
+        "lengtecontractie": (
+                "Lb = Le / γ",
+                ("Lb = waargenomen lengte (m)", "Le = eigen lengte (m)", "γ = gammafactor")
+        ),
+        
+        "energie_bewegend_deeltje": (
+                "Etot = γ·m0c2",
+                ("Etot = energie deeltje (J)", "γ = gammafactor", "m0 = rustmassa (kg)", "c = 2,9979·108 ms-1")
+        ),
+        
+        "massa_relativistisch": (
+                "m = γ·m0",
+                ("m = bewegende massa (kg)", "γ = gammafactor", "m0 = rustmassa(kg)")
+        ),
+        
+        "relativistisch_optellen": (
+                "w = (u + v) / (1 + uv/c2)",
+                ("w = somsnelheid (ms-1)", "u = deelsnelheid (ms-1)", "v = deelsnelheid (ms-1)", "c = 2,99792458·108 ms-1")
+        ),
+        
+        "tijd_in_zwaartekrachtsveld": (
+                "to = tb (1 + gh/c2)",
+                ("to = tijd onder (s)", "tb = tijd boven (s)", "g = gravitatieversnelling (m/s2)", "h = hoogteverschil (m)", "c = 2,99792458·108 m/s")
+        ),
         
 
 }

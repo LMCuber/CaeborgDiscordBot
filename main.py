@@ -234,11 +234,15 @@ async def chem(ctx, *names):
     else:
         img_bytes = io.BytesIO(img_content)
         message = await ctx.send(file=discord.File(img_bytes, "chem.png"))
+        
 
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
 async def nk(ctx, arg):
-    global formulas
-    await ctx.send(formulas)
+    form_base = formulas[arg][0]
+    form_explanations = formulas[arg][1]
+    await ctx.send(form_base)
+    for explanation in form_explanations:
+        await ctx.send(explanation)
     
 
 @bot.command(brief="Writes text to a meme")
