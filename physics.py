@@ -57,22 +57,22 @@ formulas = {
 
         "zwaartekracht": (
                 "Fz = m·g",
-                ("Fz = zwaartekracht (N)", "m = massa (kg)", "g = 9,8^1 m/s^2 (op aarde)")
+                ("Fz = zwaartekracht (N)", "m = massa (kg)", "g = 9,81 m/s^2 (op aarde)")
         ),
 
         "gravitatiekracht": (
                 "Fg = G·m^1m^2 / r^2",
-                ("Fg = gravitatiekracht (N)", "G = 6,6^73^84·1^0^-1^1 (Nm^2kg^-2)", "m^1,2 = massa's (kg)", "r = afstand (m)")
+                ("Fg = gravitatiekracht (N)", "G = 6,67384·10^-11 (Nm^2kg^-2)", "m^1,2 = massa's (kg)", "r = afstand (m)")
         ),
 
         "gravitatie_energie": (
                 "Eg = -G·m^1m^2 / r",
-                ("Eg = gravitatie-energie (J)", "G = 6,6^73^84·1^0^-1^1 Nm^2kg-2", "m^1,2 = massa's (kg)", "r = afstand (m)")
+                ("Eg = gravitatie-energie (J)", "G = 6,67384·10^-11 Nm^2kg-2", "m^1,2 = massa's (kg)", "r = afstand (m)")
         ),
 
         "3e_wet_van_Kepler": (
                 "r^3/T^2 = G·M / 4π^2",
-                ("r = baanstraal (m)", "T = omlooptijd (s)", "G = 6,6^73^84·1^0^-1^1 Nm^2kg-2", "M = centrale massa (kg)")
+                ("r = baanstraal (m)", "T = omlooptijd (s)", "G = 6,67384·10^-11 Nm^2kg-2", "M = centrale massa (kg)")
         ),
 
         "veerkracht":  (
@@ -112,7 +112,7 @@ formulas = {
 
         "zwaarte-energie": (
 		        "Ez = m·g·h",
-                ("Ez = zwaarte-energie (J)", "m = massa (kg)", "g = 9,8^1 m/s^2 (op aarde)", "h = hoogte (m)")
+                ("Ez = zwaarte-energie (J)", "m = massa (kg)", "g = 9,81 m/s^2 (op aarde)", "h = hoogte (m)")
 		),
 
         "veerenergie": (
@@ -137,7 +137,7 @@ formulas = {
 
         "ontsnappingssnelheid": (
                 "v_ontsn = √(2 GM/r)",
-                ("vontsn = ontsnappingssnelheid (m/s)", "G = 6,6^73^84·1^0^-1^1 Nm^2kg^-2", "M = massa planeet (kg)", "r = straal planeet (m)")
+                ("vontsn = ontsnappingssnelheid (m/s)", "G = 6,67384·10^-11 Nm^2kg^-2", "M = massa planeet (kg)", "r = straal planeet (m)")
         ),
 
         "rek": (
@@ -197,7 +197,7 @@ formulas = {
 
         "slinger": (
                 "T = 2π·√(L/g)",
-                ("T = trillingstijd (s)", "L = lengte slinger (m)", "g = 9,8^1 m/s^2 (op aarde)")
+                ("T = trillingstijd (s)", "L = lengte slinger (m)", "g = 9,81 m/s^2 (op aarde)")
         ),
 
         "golfsnelheid": (
@@ -312,7 +312,7 @@ formulas = {
 
         "wet_van_coulomb": (
                 "Fel = f·Qq/r^2",
-                ("Fel = kracht(N)", "f = 8,9^87^55^17^87·1^09 Nm^2/C^2", "Q,q = ladingen(C)", "r = afstand (m)")
+                ("Fel = kracht(N)", "f = 8,987551787·109 Nm^2/C^2", "Q,q = ladingen(C)", "r = afstand (m)")
         ),
 
         "veldsterkte": (
@@ -327,7 +327,7 @@ formulas = {
 
         "magnetische_veldsterkte_spoel": (
                 "B = μ0·N·I/L",
-                ("B = magnetische veldsterkte (T)", "μ0 = 1,2^56^64^37^06·1^0-6 H/m", "N = aantal wikkelingen", "I = stroomsterkte (A)", "L = spoellengte (m)")
+                ("B = magnetische veldsterkte (T)", "μ0 = 1,256643706·10-6 H/m", "N = aantal wikkelingen", "I = stroomsterkte (A)", "L = spoellengte (m)")
         ),
 
         "lorentzkracht_deeltje": (
@@ -362,7 +362,7 @@ formulas = {
 
         "fotonenergie": (
                 "Ef = h·f = h·c/λ",
-                ("Efoton = energie per foton (J)", "h = 6,6^26^06^95^7·1^0-3^4 Js", "f = frequentie (Hz)", "c = 2,9^97^9·1^08", "λ = golflengte (m)")
+                ("Efoton = energie per foton (J)", "h = 6,62606957·10-34 Js", "f = frequentie (Hz)", "c = 2,9979·108", "λ = golflengte (m)")
         ),
 
         "overgang": (
@@ -372,42 +372,42 @@ formulas = {
 
         "remspanning": (
                 "|q·Urem|= Efoton - Euittree",
-                ("q = 1,6^02^17^65^65·1^0-1^9 C", "Urem = remspanning (V)", "Efoton = fotonenergie (J)", "Euittree = uittree-energie (J)")
+                ("q = 1,602176565·10-19 C", "Urem = remspanning (V)", "Efoton = fotonenergie (J)", "Euittree = uittree-energie (J)")
         ),
 
         "energie_waterstofatoom": (
-                "En = -1^3,6 / n^2",
+                "En = -13,6 / n^2",
                 ("En = energie t.o.v. ionisatieniveau (eV)", "n = quantumgetal (1,2,3,…)")
         ),
 
         "de_brogliegolflengte": (
                 "λ = h/p = h (mv)",
-                ("λ = golflengte deeltje (m)", "h = 6,6^26^06^95^7·1^0-3^4 Js", "p = impuls (kg m/s)", "m = massa (kg)", "v = snelheid (m/s)")
+                ("λ = golflengte deeltje (m)", "h = 6,62606957·10-34 Js", "p = impuls (kg m/s)", "m = massa (kg)", "v = snelheid (m/s)")
         ),
 
         "heisenbergrelatie": (
                 "Δx·Δp ≥ h/4π",
-                ("Δx = onzekerheid plaats (m)", "Δp = onzekerheid impuls (kg m/s)", "h = 6,6^26^06^95^7·1^0-3^4 Js")
+                ("Δx = onzekerheid plaats (m)", "Δp = onzekerheid impuls (kg m/s)", "h = 6,62606957·10-34 Js")
         ),
 
         "opgesloten_deeltje": (
                 "En = n^2h^2/8mL^2",
-                ("En = energie (J)", "n = niveau (1,2,3,…)", "h = 6,6^26^06^95^7·1^0-3^4 Js", "m = massa (kg)", "L = breedte put (m)")
+                ("En = energie (J)", "n = niveau (1,2,3,…)", "h = 6,62606957·10-34 Js", "m = massa (kg)", "L = breedte put (m)")
         ),
 
         "wet_van_wien": (
                 "λmax = kW/T",
-                ("λmax = golflengte maximum (m)", "kW = 2,8^97^77^21·1^0-3 mK", "T = temperatuur (K)")
+                ("λmax = golflengte maximum (m)", "kW = 2,8977721·10-3 mK", "T = temperatuur (K)")
         ),
 
         "dopplereffect": (
                 "v = c· Δλ/λ",
-                ("v = radiële snelheid (ms-1)", "c = 2,9^97^92^45^8·1^08 ms-1", "Δλ = golflengteverschuiving (m)", "λ = golflengte (m)")
+                ("v = radiële snelheid (ms-1)", "c = 2,99792458·108 ms-1", "Δλ = golflengteverschuiving (m)", "λ = golflengte (m)")
         ),
 
         "stefan-boltzmann": (
                 "Pbron = σAT^4",
-                ("Pbron = vermogen (W)", "σ = 5,6^70^37^3·1^0-8 Wm-2K-4", "A = oppervlakte (m^2)", "T = temperatuur (K)")
+                ("Pbron = vermogen (W)", "σ = 5,670373·10-8 Wm-2K-4", "A = oppervlakte (m^2)", "T = temperatuur (K)")
         ),
 
         "kwadratenwet": (
@@ -477,7 +477,7 @@ formulas = {
 
         "massa_en_energie": (
                 "E = Δm·c^2",
-                ("E = energie (J)", "Δ m = massaverschil (kg)", "c = 2,9^97^92^45^8·1^08m/s")
+                ("E = energie (J)", "Δ m = massaverschil (kg)", "c = 2,99792458·108m/s")
         ),
 
         "dichtheid": (
@@ -486,7 +486,7 @@ formulas = {
         ),
 
         "temperatuur": (
-                "TK = T°C + 2^73,1^5",
+                "TK = T°C + 273,15",
                 ("TK = temperatuur in Kelvin (K)", "T°C = temperatuur in °C")
         ),
 
@@ -512,7 +512,7 @@ formulas = {
 
         "algemene_gaswet": (
                         "pV = nRT",
-                        ("p = druk (Pa)", "V = volume (m^3)", "n = aantal mol", "R = 8,3^14^46^21 J/mol·K", "T = temperatuur (K)")
+                        ("p = druk (Pa)", "V = volume (m^3)", "n = aantal mol", "R = 8,3144621 J/mol·K", "T = temperatuur (K)")
         ),
 
         "warmtecapaciteit": (
@@ -532,7 +532,7 @@ formulas = {
 
         "druk_in_vloeistoffen": (
                         "p = ρ·g·h",
-                        ("p = druk (Pa)", "ρ = dichtheid (kg/m^3)", "g = 9,8^1 m/s^2 (op aarde)", "h = diepte (m)")
+                        ("p = druk (Pa)", "ρ = dichtheid (kg/m^3)", "g = 9,81 m/s^2 (op aarde)", "h = diepte (m)")
         ),
 
         "tijddilatatie": (
@@ -542,7 +542,7 @@ formulas = {
 
         "gammafactor": (
                 "γ = 1 / (1 - v^2/c^2)",
-                ("γ = gammafactor", "v = snelheid (ms-1)", "c = 2,9^97^9·1^08 ms-1")
+                ("γ = gammafactor", "v = snelheid (ms-1)", "c = 2,9979·108 ms-1")
         ),
 
         "lengtecontractie": (
@@ -552,7 +552,7 @@ formulas = {
 
         "energie_bewegend_deeltje": (
                 "Etot = γ·m^0c^2",
-                ("Etot = energie deeltje (J)", "γ = gammafactor", "m^0 = rustmassa (kg)", "c = 2,9^97^9·1^08 ms-1")
+                ("Etot = energie deeltje (J)", "γ = gammafactor", "m^0 = rustmassa (kg)", "c = 2,9979·108 ms-1")
         ),
 
         "massa_relativistisch": (
@@ -562,12 +562,12 @@ formulas = {
 
         "relativistisch_optellen": (
                 "w = (u + v) / (1 + uv/c^2)",
-                ("w = somsnelheid (ms-1)", "u = deelsnelheid (ms-1)", "v = deelsnelheid (ms-1)", "c = 2,9^97^92^45^8·1^08 ms-1")
+                ("w = somsnelheid (ms-1)", "u = deelsnelheid (ms-1)", "v = deelsnelheid (ms-1)", "c = 2,99792458·108 ms-1")
         ),
 
         "tijd_in_zwaartekrachtsveld": (
                 "to = tb (1 + gh/c^2)",
-                ("to = tijd onder (s)", "tb = tijd boven (s)", "g = gravitatieversnelling (m/s^2)", "h = hoogteverschil (m)", "c = 2,9^97^92^45^8·1^08 m/s")
+                ("to = tijd onder (s)", "tb = tijd boven (s)", "g = gravitatieversnelling (m/s^2)", "h = hoogteverschil (m)", "c = 2,99792458·108 m/s")
         ),
 }
 formula_names = list(formulas.keys())
