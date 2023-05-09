@@ -129,17 +129,21 @@ async def kick(ctx, user: discord.Member, reason):
 async def rickroll(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "rickroll.gif")))
 
+
 @bot.command(brief="Shh...")
 async def ohno(ctx):
     await ctx.send(file=discord.File(path(f"{root}/assets", "walter-white-falling.gif")))
+
 
 @bot.command(brief="Shh...")
 async def whoasked(ctx):
     await ctx.send(file=discord.File(path("root", "assets", "skeletons.gif")))
 
+
 @bot.command(brief="Shh...")
 async def pog(ctx):
     await ctx.send(file=discord.File(path("root", "assets", "pog.png")))
+
 
 @bot.command(brief="Calls this command")
 async def help(ctx, strcommand=None):
@@ -264,8 +268,8 @@ async def nk(ctx, arg):
             form_explanations = formulas[arg][1]
             await ctx.send(f"*Base formula:*\n`{form_base}`")
             await ctx.send("*Contextual definitions:*")
-            for explanation in form_explanations:
-                await ctx.send(f"`{explanation}`")
+            multiline_explanation = f"```{'\n'.join(form_explanations)}```"
+            await ctx.send(multiline_explanation)
 
 
 @bot.command(brief="Writes text to a meme")
