@@ -260,7 +260,7 @@ async def nk(ctx, arg):
             await ctx.send(f"If so:")
             arg = correction
         finally:
-            form_base = formulas[arg][1]
+            form_base = formulas[arg][0]
             form_explanations = formulas[arg][1]
             await ctx.send(f"*Base formula:* {form_base}")
             await ctx.send("*Contextual definitions:*")
