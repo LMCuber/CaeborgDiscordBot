@@ -9,14 +9,14 @@ This is a custom Discord Bot written in Python that contains learning tools and 
 * `clear` - Deletes the [:-n]th messages
 * `debug` - Enters debug mode and enables journal printing
 * `define` - Defines the given word ;)
-* `deofhet,``-lidwoord | Gets whether noun is 'de' or 'het'
+* `deofhet` | Gets whether noun is 'de' or 'het'
 * `help` - Calls this command
 * `kick` - Kicks a user
 * `meme` - Writes text to a meme
 * `nk` - Returns physics formulas. `list` for list of available arguments
 * `ping` - Gets the latency of the bot (ping) in milliseconds
 * `quote` - inspirational-quote | Generates an inspirational quote
-* `shutdown,``-poweroff | Shuts down the server
+* `shutdown` | Shuts down the server
 * `spanish` - Spanish conjugation of verb in present form
 * `update` - Updates the bot
 * `weather` - Gets the 4-hourly weather forecast of the given city
