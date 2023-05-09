@@ -138,7 +138,7 @@ formulas = {
         "ontsnappingssnelheid": (
                 "v_ontsn = √(2 GM/r)",
                 ("vontsn = ontsnappingssnelheid (m/s)", "G = 6,67384·10^-11 Nm^2kg^-2", "M = massa planeet (kg)", "r = straal planeet (m)")
-        )
+        ),
         
         "rek": (
                 "ε = ΔL/L0",
