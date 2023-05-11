@@ -253,7 +253,7 @@ async def chem(ctx, *names):
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
 async def nk(ctx, arg):
     if arg == "help":
-        print(formula_names)
+        await ctw.send(formula_names)
     else:
         try:
             formulas[arg][0]

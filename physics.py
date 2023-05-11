@@ -599,3 +599,4 @@ formulas = {
         ),
 }
 formula_names = list(formulas.keys())
+formula_string = "\n".join(formula_names)
