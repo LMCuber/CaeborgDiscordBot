@@ -287,7 +287,7 @@ async def meme(ctx, text, color=None, font_size=30):
         # get image size
         img_width, img_height = img.size
         # init font
-        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), font_type)
+        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), int(font_size))
         # create empty text image and render onto it
         _, _, tw, th = font.getbbox(text)
         ratio = 0.8
