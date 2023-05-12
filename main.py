@@ -289,6 +289,7 @@ async def meme(ctx, text, color=None, font_size=30):
         img_path = f"{root}/{text}.png"
         pygame.image.save(pg_img, img_path)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
+        message = await ctx.send(file=discord.File(img_path, "meme.png"))
         os.remove(img_path)
 
 
