@@ -285,7 +285,7 @@ async def meme(ctx, text, color=None, font_size=30):
             color = "black"
         await ctx.channel.purge(limit=1)
         # load the passed image
-        pg_img = pygmae.image.frombytes(io.BytesIO(getcontent(img_url)))
+        pg_img = pygame.image.frombytes(io.BytesIO(getcontent(img_url)))
         img_path = f"{root}/{text}.png"
         pygame.image.save(pg_img, img_path)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
@@ -298,7 +298,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         pattern = 'Command "(.*?)" is not found'
         await ctx.send(f"Unknown command _{re.search(pattern, str(error)).group(1)}_")
-    elif isinstance(error, commands.NotOwner):
+    elif isinstance(error, commandsf.NotOwner):
         await ctx.send("You have no permission to invoke this command.")
     else:
         await ctx.send(repr(error))
