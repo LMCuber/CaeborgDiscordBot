@@ -29,6 +29,7 @@ sys.path.insert(1, expanduser("~"))
 from config import *
 from physics import *
 
+
 colorama.init(autoreset=True)
 rofl = "🤣"
 neutral = "😐"
@@ -58,6 +59,7 @@ lidwoord_url = r"https://welklidwoord.nl/"
 wiki_url = r"https://en.wikipedia.org/wiki/Special:Random"
 spanish_url = r"https://www.spanishdict.com/conjugate/{verb}"
 chem_url = r"https://opsin.ch.cam.ac.uk/opsin/"
+excluded_commands = ("ohno", "pog", "rickroll", "whoasked")
 
 conn_error = "Sorry, cannot send a request. Your server admin has probably blocked it or you're not connected to the internet."
 
@@ -147,11 +149,11 @@ async def pog(ctx):
 
 @bot.command(brief="Calls this command")
 async def help(ctx, strcommand=None):
-    await ctx.send("```" + "\n".join(sorted([", ".join(command_data(command)) + " | " + (command.brief if command.brief is not None else "") for command in bot.commands if (str(command).lstrip("_") if strcommand is not None else strcommand) == strcommand])) + "```")
+    await ctx.send("```" + "\n".join(sorted([", ".join(command_data(command)) + " | " + (command.brief if command.brief is not None else "") for command in bot.commands if (str(command).lstrip("_") if strcommand is not None else strcommand) == strcommand and str(command) not in excluded_commands])) + "```")
 
 
 @bot.command(aliases=["lidwoord"], brief="Gets whether noun is 'de' or 'het'")
-async def deofhet(ctx, noun):
+async def deothet(ctx, noun):
     content = gettext(lidwoord_url + noun)
     await ctx.send(f'_{re.search(f"In de Nederlandse taal gebruiken wij (.*?) {noun}", content).group(1)}_ {noun}')
 
@@ -252,7 +254,7 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
 async def nk(ctx, arg):
-    if arg == "help":
+    if arg == "list":
         await ctx.send(formula_names)
     else:
         try:
@@ -270,8 +272,8 @@ async def nk(ctx, arg):
             await ctx.send(multiline_explanation)
 
 
-@bot.command(brief="Writes text to a meme")
-async def meme(ctx, text, color=None):
+@bot.command(brief="Adds text to an image")
+async def meme(ctx, text, color=None, font_size=30):
     try:
         img_url = img_url = ctx.message.attachments[0].url
     except IndexError:
@@ -285,19 +287,23 @@ async def meme(ctx, text, color=None):
         # get image size
         img_width, img_height = img.size
         # init font
-        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 30)
+        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), font_type)
         # create empty text image and render onto it
-        _, _, fw, fh = font.getbbox(text)
-        fw = int(fw * 0.75)
-        fh = int(fh * 0.75)
-        text_img = PIL.Image.new("RGBA", (fw, fh))
-        draw = PIL.ImageDraw.Draw(text_img)
-        draw.text((img.width / 2 - fw / 2, 10), text, color, font=font)
+        _, _, tw, th = font.getbbox(text)
+        ratio = 0.8
+        mult = ratio * img_width / tw
+        text_img = PIL.Image.new("RGBA", (tw, th))
+        draw = PIL.ImageDraw.Draw(img)
+        draw.text((0, 0), text, color, font=font)
+        # resizing text according to mult (so a constant ratio is held between text and image width)
+        text_img = text_img.resize((int(tw * mult), int(th * mult)), PIL.Image.Resampling.LANCZOS)
+        # pasting the text onto the original meme image
+        # img.paste(text_img, (0, 0))
         # save and message the image
-        img_path = f"{root}{text}.png"
-        text_img.save(img_path)
+        img_path = f"{root}/{text}.png"
+        img.save(img_path, quality=100)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
-        os.remove(img_path)
+        # os.remove(img_path)
 
 
 # E V E N T S
