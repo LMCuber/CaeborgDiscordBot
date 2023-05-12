@@ -299,7 +299,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         pattern = 'Command "(.*?)" is not found'
         await ctx.send(f"Unknown command _{re.search(pattern, str(error)).group(1)}_")
-    elif isinstance(error, commandsf.NotOwner):
+    elif isinstance(error, commands.NotOwner):
         await ctx.send("You have no permission to invoke this command.")
     else:
         await ctx.send(repr(error))
