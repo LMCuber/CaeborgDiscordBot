@@ -285,7 +285,8 @@ async def meme(ctx, text, color=None, font_size=30):
             color = "black"
         await ctx.channel.purge(limit=1)
         # load the passed image
-        pg_img = pygame.image.frombytes(io.BytesIO(getcontent(img_url)))
+        pil_img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
+        pg_img = pygame.image.frombytes(io.BytesIO(getcontent(img_url)), pil_img.size, "RGBA")
         img_path = f"{root}/{text}.png"
         pygame.image.save(pg_img, img_path)
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
