@@ -28,8 +28,11 @@ from pprint import pprint
 sys.path.insert(1, expanduser("~"))
 from config import *
 from physics import *
+import pygame
+
 
 colorama.init(autoreset=True)
+pygame.font.init()
 rofl = "🤣"
 neutral = "😐"
 among_us = r"‼️‼️HOLY FUCKING SHIT‼️‼️‼️‼️ IS THAT A MOTHERFUCKING AMONG US REFERENCE??????!!!!!!!!!!11!1!1!1!1!1!1! 😱😱😱😱😱😱😱 AMONG US IS THE BEST FUCKING GAME 🔥🔥🔥🔥💯💯💯💯 RED IS SO SUSSSSS 🕵️🕵️🕵️🕵️🕵️🕵️🕵️🟥🟥🟥🟥🟥 COME TO MEDBAY AND WATCH ME SCAN 🏥🏥🏥🏥🏥🏥🏥🏥 🏥🏥🏥🏥 WHY IS NO ONE FIXING O2 🤬😡🤬😡🤬😡🤬🤬😡🤬🤬😡 OH YOUR CREWMATE? NAME EVERY TASK 🔫😠🔫😠🔫😠🔫😠🔫😠 Where Any sus!❓ ❓ Where!❓ ❓ Where! Any sus!❓ Where! ❓ Any sus!❓ ❓ Any sus! ❓ ❓ ❓ ❓ Where!Where!Where! Any sus!Where!Any sus Where!❓ Where! ❓ Where!Any sus❓ ❓ Any sus! ❓ ❓ ❓ ❓ ❓ ❓ Where! ❓ Where! ❓ Any sus!❓ ❓ ❓ ❓ Any sus! ❓ ❓ Where!❓ Any sus! ❓ ❓ Where!❓ ❓ Where! ❓ Where!Where! ❓ ❓ ❓ ❓ ❓ ❓ ❓ Any sus!❓ ❓ ❓ Any sus!❓ ❓ ❓ ❓ Where! ❓ Where! Where!Any sus!Where! Where! ❓ ❓ ❓ ❓ ❓ ❓ I think it was purple!👀👀👀👀👀👀👀👀👀👀It wasnt me I was in vents!!!!!!!!!!!!!!😂🤣😂🤣😂🤣😂😂😂🤣🤣🤣😂😂😂 r/amongusmemes r/unexpectedamongus r/expectedamongus perfectly balanced as all things should be r/unexpectedthanos r/expectedthanos for balance HOLY SHIT DID YOU JUST SAY THE WORD SUS???😳1?/1😱//1😳/1111!!!! Wait, you don't know what it is from?😳😳😳Let 👆give you a brief r/history. 📚📚📚👨‍🚀If you didn't r/knowyourshit, the r/term sus(suspicious) is a saying from the r/popular r/game r/AmongUs. Among us is so fun😔 👉👈, don't insult it, every youtuber and streamer says so!!!!!!!11 Corpses voice is so deep am i right or am i right😳😳????? I mean Mr beast and Dream play and pull big 🧠 1000000000000 iq moves in their videos..... YOU WERE THE IMPOSTER.... ඞ ඞ ඞ Get it because you don't know what sus means? r/stupidquestions r/youranidot r/stupidcuck. I CAnT BELEeVE YOUU dont KNoW WHT SUS MeaNS?/??!??!?!!🖕🖕🖕🖕🖕 Man why do i have to r/explain this to a r/idiot🤪🤪🤪📚📚📚... Sus is a GREAT WORD from a GREAT VIDEO GAME. in class, YOU CAN PLAY IT ON YOUR PHONE😜😜😜😜😜😜**??!?!?** such a masterpiece... FOR THE GREAT PRICE OF FREE!!!11!💰💰🤑🤑🤑🤑😜😜😜💰💰 It can also mean gay 😳😳😳😳"
@@ -58,6 +61,7 @@ lidwoord_url = r"https://welklidwoord.nl/"
 wiki_url = r"https://en.wikipedia.org/wiki/Special:Random"
 spanish_url = r"https://www.spanishdict.com/conjugate/{verb}"
 chem_url = r"https://opsin.ch.cam.ac.uk/opsin/"
+excluded_commands = ("ohno", "pog", "rickroll", "whoasked")
 
 conn_error = "Sorry, cannot send a request. Your server admin has probably blocked it or you're not connected to the internet."
 
@@ -147,11 +151,11 @@ async def pog(ctx):
 
 @bot.command(brief="Calls this command")
 async def help(ctx, strcommand=None):
-    await ctx.send("```" + "\n".join(sorted([", ".join(command_data(command)) + " | " + (command.brief if command.brief is not None else "") for command in bot.commands if (str(command).lstrip("_") if strcommand is not None else strcommand) == strcommand])) + "```")
+    await ctx.send("```" + "\n".join(sorted([", ".join(command_data(command)) + " | " + (command.brief if command.brief is not None else "") for command in bot.commands if (str(command).lstrip("_") if strcommand is not None else strcommand) == strcommand and str(command) not in excluded_commands])) + "```")
 
 
 @bot.command(aliases=["lidwoord"], brief="Gets whether noun is 'de' or 'het'")
-async def deofhet(ctx, noun):
+async def deothet(ctx, noun):
     content = gettext(lidwoord_url + noun)
     await ctx.send(f'_{re.search(f"In de Nederlandse taal gebruiken wij (.*?) {noun}", content).group(1)}_ {noun}')
 
@@ -252,8 +256,8 @@ async def chem(ctx, *names):
 
 @bot.command(brief="Returns physics formulas. `list` for list of available arguments")
 async def nk(ctx, arg):
-    if arg == "help":
-        print(formula_names)
+    if arg == "list":
+        await ctx.send(formula_names)
     else:
         try:
             formulas[arg][0]
@@ -270,8 +274,8 @@ async def nk(ctx, arg):
             await ctx.send(multiline_explanation)
 
 
-@bot.command(brief="Writes text to a meme")
-async def meme(ctx, text, color=None):
+@bot.command(brief="Adds text to an image")
+async def meme(ctx, text, color=None, font_size=30):
     try:
         img_url = img_url = ctx.message.attachments[0].url
     except IndexError:
@@ -281,21 +285,11 @@ async def meme(ctx, text, color=None):
             color = "black"
         await ctx.channel.purge(limit=1)
         # load the passed image
-        img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
-        # get image size
-        img_width, img_height = img.size
-        # init font
-        font = PIL.ImageFont.truetype(path(root, "assets", "Roboto", "Roboto-Medium.ttf"), 60)
-        # create empty text image and render onto it
-        _, _, fw, fh = font.getbbox(text)
-        fw = int(fw * 0.75)
-        fh = int(fh * 0.75)
-        text_img = PIL.Image.new("RGBA", (fw, fh))
-        draw = PIL.ImageDraw.Draw(text_img)
-        draw.text((img.width / 2 - fw / 2, 10), text, color, font=font)
-        # save and message the image
-        img_path = f"{root}{text}.png"
-        text_img.save(img_path)
+        pil_img = PIL.Image.open(io.BytesIO(getcontent(img_url)))
+        pg_img = pygame.image.frombytes(getcontent(img_url), pil_img.size, "RGBA")
+        img_path = f"{root}/{text}.png"
+        pygame.image.save(pg_img, img_path)
+        message = await ctx.send(file=discord.File(img_path, "meme.png"))
         message = await ctx.send(file=discord.File(img_path, "meme.png"))
         os.remove(img_path)
 
